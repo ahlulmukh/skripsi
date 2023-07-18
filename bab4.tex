@@ -160,6 +160,434 @@ Sebuah permainan tidak luput dari berbagai asset karena asset ini adalah bahan b
 \section{Pembahasan}
 \noindent
 
-Tahap ini merupakan tahap yang berisi penjelasan bagaimana proses game ini dapat bekerja sebagaimana yang diharapkan dan dapat berjalan sesuai rancangan yang telah dibuat. Pada tahap ini meliputi Proses pembuatan game, implementasi photon, gameplay dan menu.
+Tahap ini merupakan tahap yang berisi penjelasan bagaimana proses game ini dapat bekerja sebagaimana yang diharapkan dan dapat berjalan sesuai rancangan yang telah dibuat. Pada tahap ini meliputi Proses pembuatan game, implementasi photon, gameplay, menu, karakter dan program.
 
 \subsection{Proses Pembuatan Game}
+\begin{enumerate}
+    \item Pembuatan Menu\\
+    Tahap pertama adalah membuat menu dimana menu ini akan berinteraksi dengan player.
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=10cm]{pembuatanmenu.png}
+        \caption{Tampilan Pembuatan Menu}
+        \label{fig:pembuatanmenu}
+    \end{figure}
+    \item Pembuatan Player Prefabs \\
+    Tahap pembuatan player prefabs ini adalah untuk memberikan player dengan karakter yang disediakan menggunakan asset gratis agar dapat digunakan saat bermain.
+    \newpage
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=10cm]{pembuatanplayer.png}
+        \caption{Tampilan Pembuatan Player}
+        \label{fig:pembuatanplayer}
+    \end{figure}
+    \item Pembuatan Animasi Karakter \\
+    Pada tahap ini untuk membuat animasi dari karakter yang disediakan, dari gerakan idle dimana karakter berdiam, walking dimana saat karakter digerakan akan ada animasi berjalan, dan berlari jika inputan dari user terdeteksi berlari akan melakukan animasi berlari.
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=10cm]{pembuatananimasi.png}
+        \caption{Tampilan Pembuatan Animasi}
+        \label{fig:pembuatananimasi}
+    \end{figure}
+    \item Objek didalam game \\ 
+    Pada tahap ini menjelaskan objek objek yang terdapat saat didalam permainan
+    \begin{enumerate}
+        \item Weapon\\
+        Player mendapatkan 3 senjata yaitu pistol, rifle, pisau.
+        \item Health \\
+        Player diberikan darah , jika darah berkurang makan player akan terdestroy objectnya.
+        \item Weapon Overheat \\
+        Player diberikan batas saat menembak, jika melebihi batas tersebut maka senjata tersebut akan overheat.
+    \end{enumerate}
+    \item Sound \\
+    Pada tahap ini memberikan sound pada beberapa object yaitu :
+    \begin{enumerate}
+        \item Backsound \\
+        Memberikan sound saat dalam main menu.
+        \item Foot Step Low \\ 
+        Memberikan sound saat player sedang berjalan maka menggunakan sound foot step low.
+        \item Foot Step Fast \\
+        Memberikan sound saat player berlari maka menggunakan sound foot step fast.
+        \item Memberikan Sound Senjata \\ 
+        Dengan memberikan sound masing masing pada senjata yang digunakan.
+    \end{enumerate}
+\end{enumerate}
+
+\subsection{Map Gameplay}
+Tahap ini adalah tahap pembuatan map yang digunakan saat bermain, map ini menggunakan asset low poly yang diberikan secara gratis dan dimplementasikan
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=10cm]{pembuatanmap.png}
+    \caption{Tampilan Pembuatan Map}
+    \label{fig:pembuatanmap}
+\end{figure}
+
+\newpage
+\subsection{Program}
+\noindent
+
+Pada bagian ini akan menampilkan source code yang akan menjalankan dari interaksi interkasi object object yang telah dibuat seperti berjalan, menembak, memasuki room dan lainnya.
+
+\begin{enumerate}
+    \item Implementasi Server Photon \\
+    Code ini berfungsi untuk melakukan connecting ke server photon, dengan menutup menu lainnya terlebih dahulu, jika server sudah terkoneksi maka akan masuk kedalam instance set nama dan menu.
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=10cm]{implementasiphoton.png}
+        \caption{Tampilan Code Photon}
+        \label{fig:connectingp}
+    \end{figure}
+    \item \textit{Source Code} Create Room \\
+    Pada code ini berfungsi untuk melakukan pembuatan room dengan memberikan nama room, max player, dan memanggil photonetwork untuk melakukan pembuatan room.
+    \newpage
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=10cm]{codepembuatanroom.png}
+        \caption{Tampilan Code Pembuatan Room}
+        \label{fig:pembuatanroom}
+    \end{figure}
+    \item \textit{Source Code Joinned Room} \\
+    Code ini berfungsi untuk memberikan instance jika player join room akan menampikan room yang dimasuk dengan player player yang tersedia pada room tersebut.
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=10cm]{joinnedroom.png}
+        \caption{Tampilan Code Joinned Room}
+        \label{fig:joinnedroom}
+    \end{figure}
+    \item \textit{Source Code Start Game}\\
+    Code ini berfungsi untuk melakukan pemindahan instance ke scene map jika player memulai room yang telah dibuat.
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=10cm]{startgame.png}
+        \caption{Tampilan Code Start Game}
+        \label{fig:startgame}
+    \end{figure}
+    \newpage
+    \item \textit{Source Code Player Controller} \\
+    Code ini berfungsi untuk memberikan instance pertama player respawn saat dimainkan
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=10cm]{playerinstance.png}
+        \caption{Tampilan Code Player Instance}
+        \label{fig:playerinstance}
+    \end{figure}
+    \item \textit{Source Code Switch Gun} \\ 
+    Code ini berfungsi untuk melakukan pergantian senjata pada player.
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=10cm]{switchgun.png}
+        \caption{Tampilan Code Switch}
+        \label{fig:switchgun}
+    \end{figure}
+    \item \textit{Source Code Damage} \\
+    Code ini berfungsi menerima damage pada player.
+    \newpage
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=10cm]{takedamage.png}
+        \caption{Tampilan Code Take Damage}
+        \label{fig:takedamage}
+    \end{figure}
+    \item \textit{Source Code Shoot} \\ 
+    Code ini berfungsi untuk membuat player tembakan.
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=10cm]{shoot.png}
+        \caption{Tampilan Code Shoot}
+        \label{fig:shoot}
+    \end{figure}
+    \item \textit{Source Code Knife} \\ 
+    Code ini berfungsi untuk membuat player memberikan animasi \textit{Knife}.
+    \newpage
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=10cm]{knife.png}
+        \caption{Tampilan Code Knife}
+        \label{fig:knife}
+    \end{figure}
+    \item \textit{Source Code Movement Player} \\ 
+    Code ini Berfungsi untuk membuat bergerakan player yang didapat dari inputan.
+    \begin{lstlisting}
+        void Update()
+        {
+    
+            if(photonView.IsMine)
+            {
+    
+                if (Input.GetMouseButtonDown(0))
+                {
+                    if (_selectedGun == 2) // Pemeriksaan jika senjata yang dipilih adalah pisau
+                    {
+                        KnifeAttack();
+                    }
+                }
+                _mouseInput = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y")) * mouseSensitivity;
+    
+                transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 
+                    transform.rotation.eulerAngles.y + _mouseInput.x ,transform.rotation.eulerAngles.z);
+                _verticalRotStore += _mouseInput.y;
+                _verticalRotStore = Mathf.Clamp(_verticalRotStore, -60f, 60f);
+                if(invertLook){
+                    viewPoint.rotation = Quaternion.Euler(_verticalRotStore, 
+                        viewPoint.rotation.eulerAngles.y, viewPoint.rotation.eulerAngles.z);
+                }
+                else
+                {
+                    viewPoint.rotation = Quaternion.Euler(-_verticalRotStore, 
+                        viewPoint.rotation.eulerAngles.y, viewPoint.rotation.eulerAngles.z);
+                }
+    
+                _moveDirection = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
+                if(Input.GetKey(KeyCode.LeftShift))
+                {
+                    _activeMoveSpeed = runSpeed;
+    
+                    if(!fast.isPlaying && _moveDirection != Vector3.zero)
+                    {
+                        fast.Play();
+                        slow.Stop();
+                    }
+                }
+                else
+                {
+                    _activeMoveSpeed = moveSpeed;
+    
+                    if(!slow.isPlaying && _moveDirection != Vector3.zero)
+                    {
+                        fast.Stop();
+                        slow.Play();
+                    }
+                }
+                if(_moveDirection == Vector3.zero || !_isGrounded)
+                {
+                    fast.Stop();
+                    slow.Stop();
+                }
+                float yVal = _movement.y;
+                _movement = ((transform.forward * _moveDirection.z) + (transform.right * _moveDirection.x)).normalized * _activeMoveSpeed;
+                if(!charController.isGrounded)
+                {
+                    _movement.y = yVal;
+                }
+                _isGrounded = Physics.Raycast(groundCheckPoint.position, Vector3.down, .25f, groundLayers);
+    
+                if(Input.GetButtonDown("Jump") && _isGrounded)
+                {
+                    _movement.y = jumpForce;
+                }
+    
+                _movement.y += Physics.gravity.y * Time.deltaTime * gravityMod;
+    
+                charController.Move(_movement * Time.deltaTime);
+    
+    
+                if(allGuns[_selectedGun].muzzleFlash.activeInHierarchy)
+                {
+                    _muzzleCounter -= Time.deltaTime;
+    
+                    if(_muzzleCounter <= 0)
+                    {
+                        allGuns[_selectedGun].muzzleFlash.SetActive(false);
+                    }
+                }
+    
+                if(!_overHeated)
+                {
+                    if(Input.GetMouseButtonDown(0))
+                    {
+                        Shoot();
+    
+                    }
+    
+                    if(Input.GetMouseButton(0) && allGuns[_selectedGun].isAutomatic)
+                    {
+                        _shotCounter -= Time.deltaTime;
+    
+                        if(_shotCounter <= 0)
+                        {
+                            Shoot();
+                        }
+                    }
+    
+                    _heatCouner -= coolRate * Time.deltaTime;
+                }
+                else
+                {
+                    _heatCouner -= overheatCoolRate * Time.deltaTime;
+    
+                    if(_heatCouner <= 0)
+                    {
+                        _overHeated = false;
+    
+                        UIController.instance.overheatedMessage.gameObject.SetActive(false);
+                    }
+                }
+    
+                if(_heatCouner < 0)
+                {
+                    _heatCouner = 0f;
+                }
+    
+    
+                UIController.instance.weaponTempSlider.value = _heatCouner;
+    
+    
+                if(Input.GetAxisRaw("Mouse ScrollWheel") > 0)
+                {
+                    _selectedGun++;
+                    if(_selectedGun >= allGuns.Count)
+                    {
+                        _selectedGun = 0;
+                    }
+                    //SwitchGun();
+                    photonView.RPC("SetGun", RpcTarget.All, _selectedGun);
+    
+                } 
+                else if(Input.GetAxisRaw("Mouse ScrollWheel") < 0)
+                {
+                    _selectedGun--;
+                    if(_selectedGun < 0)
+                    {
+                        _selectedGun = allGuns.Count - 1;
+                    }
+                    //SwitchGun();
+                    photonView.RPC("SetGun", RpcTarget.All, _selectedGun);
+                }
+    
+                for(var i = 0; i < allGuns.Count; i++)
+                {
+                    if(Input.GetKeyDown((i + 1).ToString()))
+                    {
+                        _selectedGun = i;
+                        //SwitchGun();
+                        photonView.RPC("SetGun", RpcTarget.All, _selectedGun);
+                    }
+                }
+    
+                
+                anim.SetBool("grounded", _isGrounded);
+                anim.SetFloat("speed", _moveDirection.magnitude);
+    
+    
+                if(Input.GetMouseButton(1))
+                {
+                    _cam.fieldOfView =  Mathf.Lerp(_cam.fieldOfView, allGuns[_selectedGun].adsZoom, adsSpeed * Time.deltaTime);
+                    gunHolder.position = Vector3.Lerp(gunHolder.position, adsInPoint.position, adsSpeed * Time.deltaTime);
+                }
+                else
+                {
+                    _cam.fieldOfView =  Mathf.Lerp(_cam.fieldOfView, 60f, adsSpeed * Time.deltaTime);
+                    gunHolder.position = Vector3.Lerp(gunHolder.position, adsOutPoint.position, adsSpeed * Time.deltaTime);
+                }
+    
+    
+    
+                if(Input.GetKeyDown(KeyCode.Escape))
+                {
+                    Cursor.lockState = CursorLockMode.None;
+                    
+                }
+                else if(Cursor.lockState == CursorLockMode.None)
+                {
+                    if(Input.GetMouseButtonDown(0) && !UIController.instance.optionsScreen.activeInHierarchy)
+                    {
+                        Cursor.lockState = CursorLockMode.Locked;
+                    }
+                }
+            }
+        }      
+    \end{lstlisting}
+    \newpage
+    \item \textit{Source Code Match Manager} \\
+    Code ini berfungsi untuk melakukan instance match manager untuk mengatur logika selama bermain.
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=10cm]{matchmanager.png}
+        \caption{Tampilan Code Match Manger}
+        \label{fig:matchmanager}
+    \end{figure}
+    \item \textit{Source Code Leaderboard} \\ 
+    Code ini berfungsi untuk menampilkan leaderboard saat bermain.
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=10cm]{leaderboard.png}
+        \caption{Tampilan Code LeaderBoard}
+        \label{fig:leaderboard}
+    \end{figure}
+    \item \textit{Source Code Spawn Manager}\\
+    Code ini berfungsi untuk memberikan spawn player secara random dengan titik yang telah ditentukan.
+    \newpage
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=10cm]{spawnmanager.png}
+        \caption{Tampilan Code Spawn Manager}
+        \label{fig:spawnmanager}
+    \end{figure}
+    \item \textit{Source Code Player Spawner} \\ 
+    Code ini berfungsi untuk melakukan instance spawn dan matinya player.
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=10cm]{playerspawner.png}
+        \caption{Tampilan Code Player Spawner}
+        \label{fig:playerspawner}
+    \end{figure}
+    \item \textit{Source Code Gun} \\ 
+    Code ini berfungsi untuk memberikan algoritma pada senajata yang digunakan.
+    \newpage
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=10cm]{gun.png}
+        \caption{Tampilan Code Gun}
+        \label{fig:gun}
+    \end{figure}
+\end{enumerate}
+
+\section{Pengujian Multiplayer Online}
+
+Pada pengujian multiplayer online ini terdapat dua player untuk melakukan pengujian secara online.
+\begin{enumerate}
+    \item Pengujian Mencari room \\
+    Pada Pengujian ini player pertama mencari room yang dibuat oleh player kedua, dan pada pengujian pencarian room ini berhasil seperti gambar \ref{fig:pencarianroom}. 
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=10cm]{pencarianroom.png}
+        \caption{Tampilan Pencarian Room}
+        \label{fig:pencarianroom}
+    \end{figure}
+    \item Pengujian Masuk Room \\
+    Pada Pengujian memasuki room player pertama berhasil menjumpai player kedua didalam room tersebut seperti gambar \ref{fig:didalamroom}.
+    \newpage
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=10cm]{pengujianroom.png}
+        \caption{Tampilan Didalam Room}
+        \label{fig:didalamroom}
+    \end{figure}
+    \item Pengujian Mulai Game \\
+    Pada Pengujian mulai game, player berhasil menjumpai sesama player didalam instance game secara online.
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=10cm]{leaderboardplayer.png}
+        \caption{Tampilan Dalam Game}
+        \label{fig:dalamgame}
+    \end{figure}
+    \item Pengujian Perang \\
+    Pada pengujian ini player melakukan peperangan untuk mencari point, pengujian ini berhasil dikarenakan player mati saat ditembaki oleh player lain.
+    \newpage
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=10cm]{saatdibunuh.png}
+        \caption{Tampilan Dibunuh}
+        \label{fig:dibunuh}
+    \end{figure}
+    \item Pengujian Jaringan \\
+    Pada pengujian ini player dapat saling terhubung dengan perbedaan jaringan yang terkoneksi.
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=10cm]{laptop.jpeg}
+        \caption{Tampilan Jaringan Berbeda}
+        \label{fig:jaringanberbeda}
+    \end{figure}
+\end{enumerate}
+
+
