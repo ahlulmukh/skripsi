@@ -296,9 +296,9 @@ Pada bagian ini akan menampilkan source code yang akan menjalankan dari interaks
         \caption{Tampilan Code Shoot}
         \label{fig:shoot}
     \end{figure}
+    \newpage
     \item \textit{Source Code Knife} \\ 
     Code ini berfungsi untuk membuat player memberikan animasi \textit{Knife}.
-    \newpage
     \begin{figure}[h]
         \centering
         \includegraphics[width=10cm]{knife.png}
@@ -307,197 +307,13 @@ Pada bagian ini akan menampilkan source code yang akan menjalankan dari interaks
     \end{figure}
     \item \textit{Source Code Movement Player} \\ 
     Code ini Berfungsi untuk membuat bergerakan player yang didapat dari inputan.
-    \begin{lstlisting}
-        void Update()
-        {
-    
-            if(photonView.IsMine)
-            {
-    
-                if (Input.GetMouseButtonDown(0))
-                {
-                    if (_selectedGun == 2) // Pemeriksaan jika senjata yang dipilih adalah pisau
-                    {
-                        KnifeAttack();
-                    }
-                }
-                _mouseInput = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y")) * mouseSensitivity;
-    
-                transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 
-                    transform.rotation.eulerAngles.y + _mouseInput.x ,transform.rotation.eulerAngles.z);
-                _verticalRotStore += _mouseInput.y;
-                _verticalRotStore = Mathf.Clamp(_verticalRotStore, -60f, 60f);
-                if(invertLook){
-                    viewPoint.rotation = Quaternion.Euler(_verticalRotStore, 
-                        viewPoint.rotation.eulerAngles.y, viewPoint.rotation.eulerAngles.z);
-                }
-                else
-                {
-                    viewPoint.rotation = Quaternion.Euler(-_verticalRotStore, 
-                        viewPoint.rotation.eulerAngles.y, viewPoint.rotation.eulerAngles.z);
-                }
-    
-                _moveDirection = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
-                if(Input.GetKey(KeyCode.LeftShift))
-                {
-                    _activeMoveSpeed = runSpeed;
-    
-                    if(!fast.isPlaying && _moveDirection != Vector3.zero)
-                    {
-                        fast.Play();
-                        slow.Stop();
-                    }
-                }
-                else
-                {
-                    _activeMoveSpeed = moveSpeed;
-    
-                    if(!slow.isPlaying && _moveDirection != Vector3.zero)
-                    {
-                        fast.Stop();
-                        slow.Play();
-                    }
-                }
-                if(_moveDirection == Vector3.zero || !_isGrounded)
-                {
-                    fast.Stop();
-                    slow.Stop();
-                }
-                float yVal = _movement.y;
-                _movement = ((transform.forward * _moveDirection.z) + (transform.right * _moveDirection.x)).normalized * _activeMoveSpeed;
-                if(!charController.isGrounded)
-                {
-                    _movement.y = yVal;
-                }
-                _isGrounded = Physics.Raycast(groundCheckPoint.position, Vector3.down, .25f, groundLayers);
-    
-                if(Input.GetButtonDown("Jump") && _isGrounded)
-                {
-                    _movement.y = jumpForce;
-                }
-    
-                _movement.y += Physics.gravity.y * Time.deltaTime * gravityMod;
-    
-                charController.Move(_movement * Time.deltaTime);
-    
-    
-                if(allGuns[_selectedGun].muzzleFlash.activeInHierarchy)
-                {
-                    _muzzleCounter -= Time.deltaTime;
-    
-                    if(_muzzleCounter <= 0)
-                    {
-                        allGuns[_selectedGun].muzzleFlash.SetActive(false);
-                    }
-                }
-    
-                if(!_overHeated)
-                {
-                    if(Input.GetMouseButtonDown(0))
-                    {
-                        Shoot();
-    
-                    }
-    
-                    if(Input.GetMouseButton(0) && allGuns[_selectedGun].isAutomatic)
-                    {
-                        _shotCounter -= Time.deltaTime;
-    
-                        if(_shotCounter <= 0)
-                        {
-                            Shoot();
-                        }
-                    }
-    
-                    _heatCouner -= coolRate * Time.deltaTime;
-                }
-                else
-                {
-                    _heatCouner -= overheatCoolRate * Time.deltaTime;
-    
-                    if(_heatCouner <= 0)
-                    {
-                        _overHeated = false;
-    
-                        UIController.instance.overheatedMessage.gameObject.SetActive(false);
-                    }
-                }
-    
-                if(_heatCouner < 0)
-                {
-                    _heatCouner = 0f;
-                }
-    
-    
-                UIController.instance.weaponTempSlider.value = _heatCouner;
-    
-    
-                if(Input.GetAxisRaw("Mouse ScrollWheel") > 0)
-                {
-                    _selectedGun++;
-                    if(_selectedGun >= allGuns.Count)
-                    {
-                        _selectedGun = 0;
-                    }
-                    //SwitchGun();
-                    photonView.RPC("SetGun", RpcTarget.All, _selectedGun);
-    
-                } 
-                else if(Input.GetAxisRaw("Mouse ScrollWheel") < 0)
-                {
-                    _selectedGun--;
-                    if(_selectedGun < 0)
-                    {
-                        _selectedGun = allGuns.Count - 1;
-                    }
-                    //SwitchGun();
-                    photonView.RPC("SetGun", RpcTarget.All, _selectedGun);
-                }
-    
-                for(var i = 0; i < allGuns.Count; i++)
-                {
-                    if(Input.GetKeyDown((i + 1).ToString()))
-                    {
-                        _selectedGun = i;
-                        //SwitchGun();
-                        photonView.RPC("SetGun", RpcTarget.All, _selectedGun);
-                    }
-                }
-    
-                
-                anim.SetBool("grounded", _isGrounded);
-                anim.SetFloat("speed", _moveDirection.magnitude);
-    
-    
-                if(Input.GetMouseButton(1))
-                {
-                    _cam.fieldOfView =  Mathf.Lerp(_cam.fieldOfView, allGuns[_selectedGun].adsZoom, adsSpeed * Time.deltaTime);
-                    gunHolder.position = Vector3.Lerp(gunHolder.position, adsInPoint.position, adsSpeed * Time.deltaTime);
-                }
-                else
-                {
-                    _cam.fieldOfView =  Mathf.Lerp(_cam.fieldOfView, 60f, adsSpeed * Time.deltaTime);
-                    gunHolder.position = Vector3.Lerp(gunHolder.position, adsOutPoint.position, adsSpeed * Time.deltaTime);
-                }
-    
-    
-    
-                if(Input.GetKeyDown(KeyCode.Escape))
-                {
-                    Cursor.lockState = CursorLockMode.None;
-                    
-                }
-                else if(Cursor.lockState == CursorLockMode.None)
-                {
-                    if(Input.GetMouseButtonDown(0) && !UIController.instance.optionsScreen.activeInHierarchy)
-                    {
-                        Cursor.lockState = CursorLockMode.Locked;
-                    }
-                }
-            }
-        }      
-    \end{lstlisting}
     \newpage
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=10cm]{player-movement.png}
+        \caption{Tampilan Code Player Movement}
+        \label{fig:movementp}
+    \end{figure}
     \item \textit{Source Code Match Manager} \\
     Code ini berfungsi untuk melakukan instance match manager untuk mengatur logika selama bermain.
     \begin{figure}[h]
@@ -516,7 +332,6 @@ Pada bagian ini akan menampilkan source code yang akan menjalankan dari interaks
     \end{figure}
     \item \textit{Source Code Spawn Manager}\\
     Code ini berfungsi untuk memberikan spawn player secara random dengan titik yang telah ditentukan.
-    \newpage
     \begin{figure}[h]
         \centering
         \includegraphics[width=10cm]{spawnmanager.png}
@@ -544,7 +359,7 @@ Pada bagian ini akan menampilkan source code yang akan menjalankan dari interaks
 
 \section{Pengujian Multiplayer Online}
 
-Pada pengujian multiplayer online ini terdapat dua player untuk melakukan pengujian secara online.
+Pada pengujian multiplayer online ini terdapat 5 player untuk melakukan pengujian secara online dengan jaringan yang berbeda.
 \begin{enumerate}
     \item Pengujian Mencari room \\
     Pada Pengujian ini player pertama mencari room yang dibuat oleh player kedua, dan pada pengujian pencarian room ini berhasil seperti gambar \ref{fig:pencarianroom}. 
@@ -555,11 +370,11 @@ Pada pengujian multiplayer online ini terdapat dua player untuk melakukan penguj
         \label{fig:pencarianroom}
     \end{figure}
     \item Pengujian Masuk Room \\
-    Pada Pengujian memasuki room player pertama berhasil menjumpai player kedua didalam room tersebut seperti gambar \ref{fig:didalamroom}.
+    Pada Pengujian memasuki room player berhasil menjumpai sesama player didalam room tersebut seperti gambar \ref{fig:didalamroom}.
     \newpage
     \begin{figure}[h]
         \centering
-        \includegraphics[width=10cm]{pengujianroom.png}
+        \includegraphics[width=10cm]{5-player.png}
         \caption{Tampilan Didalam Room}
         \label{fig:didalamroom}
     \end{figure}
@@ -567,11 +382,11 @@ Pada pengujian multiplayer online ini terdapat dua player untuk melakukan penguj
     Pada Pengujian mulai game, player berhasil menjumpai sesama player didalam instance game secara online.
     \begin{figure}[h]
         \centering
-        \includegraphics[width=10cm]{leaderboardplayer.png}
+        \includegraphics[width=10cm]{5-player-ingame.png}
         \caption{Tampilan Dalam Game}
         \label{fig:dalamgame}
     \end{figure}
-    \item Pengujian Perang \\
+    \item Pengujian \textit{Battle} \\
     Pada pengujian ini player melakukan peperangan untuk mencari point, pengujian ini berhasil dikarenakan player mati saat ditembaki oleh player lain.
     \newpage
     \begin{figure}[h]
@@ -580,14 +395,145 @@ Pada pengujian multiplayer online ini terdapat dua player untuk melakukan penguj
         \caption{Tampilan Dibunuh}
         \label{fig:dibunuh}
     \end{figure}
-    \item Pengujian Jaringan \\
-    Pada pengujian ini player dapat saling terhubung dengan perbedaan jaringan yang terkoneksi.
-    \begin{figure}[h]
-        \centering
-        \includegraphics[width=10cm]{laptop.jpeg}
-        \caption{Tampilan Jaringan Berbeda}
-        \label{fig:jaringanberbeda}
-    \end{figure}
 \end{enumerate}
+\newpage
+\section{Pengujian Sistem}
+\noindent
+
+Pengujian sistem dilakukan untuk mengetahui fungsional menu utama sistem dari game jak meuprang dengan metode \textit{blackbox} testing.
+\subsection{Pengujian Blackbox Testing}
+\noindent
+
+Pengujian blackbox untuk menguji fungsi sistem atau kekurangan pada 
+perangkat lunak yang diuji agar menjadi lebih baik dan dapat diminimalisir 
+terjadinya kekurangan pada sistem
+\begin{enumerate}
+    \item Tombol Cari Room \\
+    % \usepackage{tabularray}
+\begin{table}[h]
+    \centering
+    \caption{Hasil Pengujian Cari Room}
+    \label{tb:tabel-cariroom}
+    \begin{tblr}{
+      vlines,
+      hline{1,7} = {-}{0.08em},
+      hline{2} = {-}{},
+      hline{3-6} = {4,6}{},
+    }
+    ID  & {Rincian \\Pengujian} & {Hasil yang\\di harapkan}             & Player & {Hasil yang \\didapatkan}             & Keterangan \\
+    R01 & {Tombol \\Cari Room}  & {Menampilkan \\Panel\\Pencarian Room} & 1      & {Menampilkan \\Panel\\Pencarian Room} & Berhasil   \\
+        &                       &                                       & 2      &                                       & Berhasil   \\
+        &                       &                                       & 3      &                                       & Berhasil   \\
+        &                       &                                       & 4      &                                       & Berhasil   \\
+        &                       &                                       & 5      &                                       & Berhasil   
+    \end{tblr}
+    \end{table}
+    \item Tombol Buat Room \\
+    \begin{table}[h]
+        \centering
+        \caption{Hasil Pengujian Buat Room}
+        \label{tb:tabel-buatroom}
+        \begin{tblr}{
+          vlines,
+          hline{1,7} = {-}{0.08em},
+          hline{2} = {-}{},
+          hline{3-6} = {4,6}{},
+        }
+        ID  & {Rincian \\Pengujian} & {Hasil yang\\di harapkan}                & Player & {Hasil yang \\didapatkan}               & Keterangan \\
+        B01 & {Tombol\\Buat Room}   & {Menampilkan \\Panel Inputan\\Nama Room} & 1      & {Menampilkan\\Panel Inputan\\Nama Room} & Berhasil   \\
+            &                       &                                          & 2      &                                         & Berhasil   \\
+            &                       &                                          & 3      &                                         & Berhasil   \\
+            &                       &                                          & 4      &                                         & Berhasil   \\
+            &                       &                                          & 5      &                                         & Berhasil   
+        \end{tblr}
+        \end{table}
+        \newpage
+        \item Tombol Exit Room \\
+        \begin{table}[h]
+            \centering
+            \caption{Hasil Pengujian Exit Room}
+        \label{tb:tabel-exitroom}
+            \begin{tblr}{
+              vlines,
+              hline{1,7} = {-}{0.08em},
+              hline{2} = {-}{},
+              hline{3-6} = {4,6}{},
+            }
+            ID  & {Rincian \\Pengujian} & {Hasil yang\\di harapkan}  & Player & {Hasil yang \\didapatkan} & Keterangan \\
+            E01 & {Tombol\\Exit Room}   & {Menampilkan~\\Menu Utama} & 1      & {Menampilkan\\Menu utama} & Berhasil   \\
+                &                       &                            & 2      &                           & Berhasil   \\
+                &                       &                            & 3      &                           & Berhasil   \\
+                &                       &                            & 4      &                           & Berhasil   \\
+                &                       &                            & 5      &                           & Berhasil   
+            \end{tblr}
+            \end{table}
+        \item Tombol About Game \\
+        \begin{table}[h]
+            \centering
+            \caption{Hasil Pengujian About Game}
+            \label{tb:tabel-aboutgame}
+            \begin{tblr}{
+              vlines,
+              hline{1,7} = {-}{0.08em},
+              hline{2} = {-}{},
+              hline{3-6} = {4,6}{},
+            }
+            ID  & {Rincian \\Pengujian} & {Hasil yang\\di harapkan} & Player & {Hasil yang \\didapatkan} & Keterangan \\
+            A01 & {Tombol\\About\\Game} & {Menampilkan\\Informasi}  & 1      & {Menampilkan\\Informasi}  & Berhasil   \\
+                &                       &                           & 2      &                           & Berhasil   \\
+                &                       &                           & 3      &                           & Berhasil   \\
+                &                       &                           & 4      &                           & Berhasil   \\
+                &                       &                           & 5      &                           & Berhasil   
+            \end{tblr}
+            \end{table}
+        \newpage
+        \item Tombol Keluar \\
+        \begin{table}[h]
+            \centering
+            \caption{Hasil Pengujian Keluar Game}
+            \label{tb:tabel-keluargame}
+            \begin{tblr}{
+              vlines,
+              hline{1,7} = {-}{0.08em},
+              hline{2} = {-}{},
+              hline{3-6} = {4,6}{},
+            }
+            ID  & {Rincian \\Pengujian} & {Hasil yang\\di harapkan} & Player & {Hasil yang \\didapatkan} & Keterangan \\
+            K01 & {Tombol\\Keluar}      & {Mengeluarkan\\Permainan} & 1      & {Mengeluarkan\\Permainan} & Berhasil   \\
+                &                       &                           & 2      &                           & Berhasil   \\
+                &                       &                           & 3      &                           & Berhasil   \\
+                &                       &                           & 4      &                           & Berhasil   \\
+                &                       &                           & 5      &                           & Berhasil   
+            \end{tblr}
+            \end{table}
+\end{enumerate}
+
+Pada Tabel \ref{tb:tabel-blackbox} untuk menampilkan menghitung persentase kelayakan menu game dari 5 pengguna.
+\begin{table}[h]
+    \centering
+    \caption{Hasil Pengujian Blac Box}
+    \label{tb:tabel-blackbox}
+    \begin{tabular}{|ll|l|l|l|} 
+    \toprule
+    \multicolumn{1}{|l|}{\begin{tabular}[c]{@{}l@{}}Test\\Case\\Id\end{tabular}} & Penggunaan Berhasil                      & \begin{tabular}[c]{@{}l@{}}Pengunaan\\Tidak\\Berhasil\end{tabular} & Presentase & Hasil                 \\ 
+    \hline
+    R01                                                                          & 5                                        & 0                                                                  & $5/5 \times 100\%$  & 100\%                      \\ 
+    \hline
+    B01                                                                          & 5                                        & 0                                                                  & $5/5 \times 100\%$  & 100\%                      \\ 
+    \hline
+    E01                                                                          & 5                                        & 0                                                                  & $5/5 \times 100\%$  & 100\%                      \\ 
+    \hline
+    A01                                                                          & 5                                        & 0                                                                  & $5/5 \times 100\%$  & 100\%                      \\ 
+    \hline
+    K01                                                                          & 5                                        & 0                                                                  & $5/5 \times 100\%$  & 100\%                      \\ 
+    \hline
+                                                                                 & \multicolumn{1}{l}{Rata Rata Presentase} & \multicolumn{1}{l}{}                                               &            & 100\%  \\
+    \bottomrule
+    \end{tabular}
+    \end{table}
+
+    Berdasarkan tabel atas dijelaskan pengujian kelayakan menu utama game menggunakan 
+metode black box dengan 5 pengguna didapatkan hasil 100% dari pengguna 
+berhasil dan pengguna tidak berhasil. Kemudian dapat di simpulkan game ini layak dimainkan.
 
 

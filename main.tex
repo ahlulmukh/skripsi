@@ -53,7 +53,8 @@
 \def\contentsname{DAFTAR ISI}
 \renewcommand\bibname{DAFTAR PUSTAKA}
 \def\chaptername{BAB}
-
+\usepackage{amsmath}
+\usepackage{booktabs}
 \usepackage{titlesec}
 \titleformat{\chapter}[display]{\normalfont\bfseries\centering}{\MakeUppercase{\chaptertitlename}~\thechapter}{0pt}{}
 \titlespacing*{\chapter}{0pt}{-2pt}{16pt}
@@ -61,6 +62,7 @@
 \renewcommand{\arraystretch}{1.5}
 
 \renewcommand\thechapter{\Roman{chapter}}
+\newcommand{\arabicchapter}{\arabic{chapter}}
 \renewcommand\thesection{\arabic{section}}
 \def\thesection{\arabic{chapter}.\arabic{section}}
 \def\thetable{\arabic{table}}
@@ -85,8 +87,8 @@
 %\setstretch{1.1}
 \renewcommand{\tablename}{Tabel}
 \renewcommand{\figurename}{Gambar}
-\renewcommand{\thefigure}{\thesection.\arabic{figure}}
-\renewcommand{\thetable}{\thesection.\arabic{table}}
+\renewcommand{\thefigure}{\arabicchapter.\arabic{figure}}
+\renewcommand{\thetable}{\arabicchapter.\arabic{table}}
 \usepackage[breaklinks]{hyperref}
 \renewcommand{\listfigurename}{DAFTAR GAMBAR}
 \renewcommand{\listtablename}{DAFTAR TABEL}
