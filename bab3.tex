@@ -13,6 +13,51 @@ Penulis menggunakan beberapa tahap atau metode dalam melakukan penilitian untuk 
     \item Observasi \\ Peniliti mengumpulkan data dengan cara memainkan sekaligus mengamati secara langsung permainan sejenis yang sudah ada.
 \end{enumerate}
 
+\section{Analisis}
+\noindent
+
+Game First Person-Shooter dibuat untuk memberikan saran hiburan yang 
+menantang dan keterampilan berperang dalam mengambil situasi.
+
+\subsection{Analisis Proses}
+\noindent
+
+Proses ini menggunakan metode Multimedia Development Life Cycle 
+(MDLC). Metode ini terdiri dari enam tahap, yaitu:
+
+\begin{enumerate}
+    \item \textit{Concept} \\
+    Game bergenre \textit{First Person Shooter} (FPS) merupakan game tembak menembak sesama player, sistem dalam game menggunakan aturan bermain dengan waktu yang telah ditentukan, pada waktu yang telah ditentukan player harus saling tembak menembak untuk mengejar peringkat 1 pada leaderboard, jika waktu yang telah ditentukan telah habis maka game telah berakhir. Permainan ini harus terhubung dengan internet agar dapat dimainkan.
+    \item \textit{Design} \\
+    Perancangan desain pembuatan game yaitu map, karakter, senjata dan sound yang menggunakan asset gratis yang tersedia digoogle.
+    \item \textit{Material Collecting} \\
+    Semua material yang dikumpulkan sesuai dengan kebutuhan yang diperlukan dengan menggunakan asset dari website yang menyediakan asset gratis agar tidak memberatkan disaat pembuatan game. Berikut beberapa asset yang digunakan dalam pembuatan game.
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=10cm]{collecting-weapon.png}
+        \caption{Weapon Collecting}
+        \label{fig:weapon-collecting}
+    \end{figure}
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=10cm]{collecting-karakter.png}
+        \caption{Karakter Collecting}
+        \label{fig:karakter-collecting}
+    \end{figure}
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=10cm]{collecting-map.png}
+        \caption{Map Collecting}
+        \label{fig:map-collecting}
+    \end{figure}
+    \newpage
+    \item \textit{Coding} \\
+    Tahap ini adalah tahap untuk menjadikan semua komponen agar berdapat berfungsi seperti menghubungkan jaringan photon, berjalan, berlari, menembak, dan lain lain. Bahasa yang digunakan yaitu CSharp.
+    \item \textit{Testing} \\
+    Tahap testing ini akan dilakukan oleh kerabat terdekat atau orang yang ada disekitar.
+    \item \textit{Distribution} \\
+    Pada tahap ini game akan dicompile menjadi (exe) dan permainan akan di uji coba ke gamers yang sering memainkan game bergenre \textit{First Person Shooter} (FPS).
+\end{enumerate}
 \section{Rancangan Sistem(software/hardware)}
 \noindent
 
@@ -39,6 +84,7 @@ Penulis menggunakan beberapa tahap atau metode dalam melakukan penilitian untuk 
 \begin{enumerate}
     \item \textit{Use Case Diagram}
     \\ Tahapan ini memiliki satu aktor yaitu pemain, penjelasan mengenai tahap ini diilustrasikan pada gambar \ref{fig:case-diagram}
+    \newpage
     \begin{figure}[h]
         \centering
         \includegraphics[width=10cm]{case-diagram.png}
@@ -50,6 +96,7 @@ Penulis menggunakan beberapa tahap atau metode dalam melakukan penilitian untuk 
     Pemain dapat menjadi server jika pemain melakukan \textit{use case} buat room dan pemain juga bisa menjadi client jika pemain menggunakan \textit{use case join room}, tetapi jika tidak adanya pemain yang menggunakan \textit{use case} buat room, maka \textit{use case} join room tidak dapat digunakan oleh pemain yang menjadi client.
     \textit{use case exit room} dapat dilakukan oleh pemain yang menjadi server maupun menjadi client, dan hal itu akan menghapus sesi room yang sudah dibuat jika semua pemain menggunakan \textit{use case exit room}. \textit{Use case about game} dapat dilakukan oleh pemain untuk mengetahui tentang \textit{game} yang dimainkan, dan yang terakhir jika pemain ingin meninggalkam \textit{game}, pemain mengunakan \textit{Use case Exit Game.}
     \textit{Activity diagram} adalah diagram yang memodelkan aliran aktivitas pada sistem.
+    \newpage
     \item Activity Diagram
     \begin{enumerate}
         \item \textit{Activity Diagram} buat \textit{Room}
@@ -61,6 +108,7 @@ Penulis menggunakan beberapa tahap atau metode dalam melakukan penilitian untuk 
        \end{figure}
        \\ Gambar \ref{fig:croom-case} merupakan \textit{Activity Diagram Create Room}. Diawali dengan pemain membuka \textit{game}, sistem akan menampilkan menu \textit{game}, player menekan tombol buat room untuk membuat room yang belum tersedia sebagai server atau pemilk room.
        Pada \textit{activity waiting player} pemilik room akan menunggu player/\textit{client} untuk memasukan room dan memulai \textit{game}.
+    \newpage
     \item \textit{Activty Diagram} join \textit{Room}
     \begin{figure}[h]
         \centering
@@ -98,11 +146,11 @@ Penulis menggunakan beberapa tahap atau metode dalam melakukan penilitian untuk 
 \end{enumerate}
 
 
-
+\newpage
 \subsection{Rancangan \textit{Class Diagram Multiplayer Photon}}
 \begin{figure}[h]
    \centering
-   \includegraphics[width=10cm]{class-diagram-perancangan.png}
+   \includegraphics[width=14cm]{class-diagram-perancangan.png}
     \caption{Rancangan \textit{class diagram} multiplayer photon}
     \label{fig:class-diagram-game}
 \end{figure}
@@ -116,6 +164,7 @@ PlayerM merupakan kelas yang berfungsi untuk menampung semua pergerakan player s
 GameplayMultiP merupakan class yang berfungsi sebagai \textit{gameplay} yang akan dimainkan seperti player, point pada \textit{game} dan respawn pemain saat mati.
 Dan KarakterPlayer merupakan class yang berfungsi sebagai inisialisasi player utama.
 
+\newpage
 \subsection{Rancangan \textit{Blok} Diagram Alur \textit{Game} Jak Meuprang}
 \begin{figure}[h]
     \centering
@@ -129,7 +178,7 @@ Jika inisialisasi sudah selesai \textit{game} akan dimulai dan pemain spawn pada
 Ketika \textit{game} sudah habis waktu makan \textit{game} sudah berakhir dan akan mamasukin akhir \textit{game} permainan.
 
 \newpage
-\section{Metode Penelitian}
+\subsection{Flowchart Photon Unity}
 \noindent
 
 Photon memiliki fitur dan metode sendiri dalam mengelola sebuah \textit{game} multiplayer yang menggunakan \textit{framework}-nya. Untuk mengelola metode yang telah disediakan oleh photon, peniliti mengimplementasikan metode matchmaking pada \textit{game} \textit{multiplayer first person shooter}(fps) untuk mencari roomlist atau create room pada \textit{game} \textit{first person shooter}.
@@ -142,9 +191,35 @@ Photon memiliki fitur dan metode sendiri dalam mengelola sebuah \textit{game} mu
 
 Mengacu pada gambar \ref{fig:algoritmamatmaching}, algoritma membutuhkan daftar \textit{room} yang didapatkan dari \textit{interface} photon \textit{Behavior}. Jika belum ada \textit{room} yang tersedia pada daftar \textit{room}, maka dilakukan fungsi detil dari algoritma matchmaking yaitu SearchRoomMatchmaking(). 
 
+\section{Story Board}
+\noindent
 
-        \section{Teknik Pengujian}
-        \subsection{Blackbox}
+Dalam konteks game, ada bagian storyboard yang menampilkan progres 
+permainan yang akan dibuat dan memberikan penjelasan mengenai gameplay dari 
+permainan itu sendiri. Hasil desain storyboard ini berfungsi sebagai pendekatan 
+visual atau kerangka dasar dari permainan tersebut.
+\newpage
+\begin{table}[h]
+    \begin{longtblr}{
+        colspec={Q[valign=b]Q[valign=b]Q[valign=h]},
+        row{1}={halign=c},
+        vlines,
+        hlines
+      }
+      Id & Deskripsi                                                                             & Gambar \\
+      1                        & {Bagian main menu \\akan menampilkan \\menu utama game}                                                                & \includegraphics[scale=0.15]{menuutama}                  \\ 
+      2                        & {Bagian didalam room \\akan menampilkan \\player}                                                                & \includegraphics[scale=0.15]{pengujianroom}                  \\ 
+      3                        & {Bagian didalam game \\saat game selesai}                                                                & \includegraphics[scale=0.15]{roundover}                  \\ 
+      \end{longtblr}
+\end{table}
+\newpage
+\section{Teknik Pengujian}
+\noindent
+
+Tahapan teknik pengujian yang dibutuhkan dalam permianan game 
+\judulId untuk memperoleh data adalah sebagai berikut:
+
+\subsection{Blackbox}
 Teknik pengujian yang digunakan yaitu blackbox. Pengujian Black Box pada fungsional sistem yang terdapat pada aplikasi permainan \textit{first person shooter}.
 
     \begin{table}[h]
@@ -163,7 +238,9 @@ Teknik pengujian yang digunakan yaitu blackbox. Pengujian Black Box pada fungsio
     \end{table}
 \newpage        
 \subsection{Pengujian performa jaringan}
-Teknik pengujian performa untuk melakukan pengujian jaringan pada photon cloud menggunakan wireshark qos untuk mengukur troughput, delay dan packet loss.
+\noindent
+
+Teknik pengujian performa untuk melakukan pengujian jaringan pada photon cloud menggunakan wireshark qos untuk mengukur delay dan packet loss.
 \section{Hasil yang diharapkan}
 Hasil yang diharapkan pada penilitian ini antara lain :
 \begin{enumerate}
