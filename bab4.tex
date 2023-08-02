@@ -92,76 +92,38 @@ Sebuah permainan tidak luput dari berbagai asset karena asset ini adalah bahan b
 \begin{enumerate}
     \item Karakter \\
     Adapun karakter yang digunakan dalam pembuatan game ini memiliki dua karakter yang memiliki animasi yang sama.
-    \begin{table}[h!]
-        \centering
-        \caption{Karakter}\label{tbl:karakter}
-        \begin{tabular}{ | c | c | m{6cm} | m{6cm} | }
-            \hline
-            No & Karakter & Nama \\ \hline
-            1 &
-            \begin{minipage}{.2\textwidth}
-                \includegraphics[width=\linewidth, height=60mm, ]{karakter1.png}
-            \end{minipage}
-            &
-            \begin{minipage}{6cm}
-                Criminal Karakter
-            \end{minipage}
-            \\ \hline
-            2 &
-        \begin{minipage}{.2\textwidth}
-            \includegraphics[width=\linewidth, height=60mm]{karakter2.png}
-        \end{minipage}
-        &
-        \begin{minipage}{6cm}
-            Skater Karakter
-        \end{minipage}
-        \\ \hline
-        \end{tabular}
-    \end{table}
+    
+    \begin{longtblr}[caption = {\textit{Karakter}}]{
+        colspec={Q[valign=b]Q[valign=b]Q[valign=h]},
+        row{1}={halign=c},
+        vlines,
+        hlines,
+      }
+      No & Gambar & Nama \\
+      1 & \includegraphics[scale=0.15]{karakter1} & Criminal Karakter \\
+      2 & \includegraphics[scale=0.15]{karakter2} & Skater Karakter \\
+    \end{longtblr}
+
     \newpage
     \item Weapon \\
-    \begin{table}[h!]
-        \centering
-        \caption{Weapon}\label{tbl:weapon}
-        \begin{tabular}{ | c | c | m{6cm} | m{6cm} | }
-            \hline
-            No & Weapon & Nama \\ \hline
-            1 &
-            \begin{minipage}{.2\textwidth}
-                \includegraphics[width=\linewidth, height=60mm, ]{weapon1.png}
-            \end{minipage}
-            &
-            \begin{minipage}{6cm}
-                Pistol
-            \end{minipage}
-            \\ \hline
-            2 &
-        \begin{minipage}{.2\textwidth}
-            \includegraphics[width=\linewidth, height=60mm]{weapon2.png}
-        \end{minipage}
-        &
-        \begin{minipage}{6cm}
-            Smg Rifle
-        \end{minipage}
-        \\ \hline
-        3 &
-        \begin{minipage}{.2\textwidth}
-            \includegraphics[width=\linewidth, height=60mm]{weapon3.png}
-        \end{minipage}
-        &
-        \begin{minipage}{6cm}
-            Knife
-        \end{minipage}
-        \\ \hline
-        \end{tabular}
-    \end{table}
+    \begin{longtblr}[caption = {\textit{Karakter}}]{
+        colspec={Q[valign=b]Q[valign=b]Q[valign=h]},
+        row{1}={halign=c},
+        vlines,
+        hlines,
+      }
+      No & Gambar & Nama \\
+      1 & \includegraphics[scale=0.15]{weapon1} & Pistol \\
+      2 & \includegraphics[scale=0.15]{weapon2} & Smg Rifle \\
+      2 & \includegraphics[scale=0.15]{weapon3} & Knife \\
+    \end{longtblr}
 \end{enumerate}
 
 \section{Pembahasan}
 \noindent
 
 Tahap ini merupakan tahap yang berisi penjelasan bagaimana proses game ini dapat bekerja sebagaimana yang diharapkan dan dapat berjalan sesuai rancangan yang telah dibuat. Pada tahap ini meliputi Proses pembuatan game, implementasi photon, gameplay, menu, karakter dan program.
-
+\newpage
 \subsection{Proses Pembuatan Game}
 \begin{enumerate}
     \item Pembuatan Menu\\
