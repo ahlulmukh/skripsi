@@ -35,7 +35,7 @@
 }
 \usepackage[table]{xcolor}
 \usepackage{setspace}
-\onehalfspacing
+\doublespacing
 
 \newcommand{\Lpagenumber}{\ifdim\textwidth=\linewidth\else\bgroup
   \dimendef\margin=0 %use \margin instead of \dimen0
@@ -84,7 +84,7 @@
 
 \usepackage{setspace}
 %\singlespacing
-\onehalfspacing
+\doublespacing
 %\doublespacing
 %\setstretch{1.1}
 \renewcommand{\tablename}{Tabel}
@@ -102,9 +102,10 @@
 
 \input{cover}
 \pagenumbering{roman}
+\onehalfspacing
 \input{pengesahan}
 \input{pengesahanpenguji}
-
+\doublespacing
 \tableofcontents
 \addcontentsline{toc}{chapter}{DAFTAR ISI}
 
@@ -116,9 +117,10 @@
 \addcontentsline{toc}{chapter}{\listfigurename}
 
 
+\singlespacing
 \input{ringkasan}
 \clearpage
-
+\doublespacing
 \pagenumbering{arabic}
 \setcounter{page}{1}
 

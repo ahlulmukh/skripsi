@@ -62,7 +62,7 @@ Proses ini menggunakan metode Multimedia Development Life Cycle
 \noindent
 
     Pada penilitian ini membutuhkan \textit{software} dan perangkat keras untuk melakukan pembuatan \textit{game} first person shooter. Berikut ini spesifikasi rancangan sistem penilitian yang dijabarkan pada Tabel \ref{tb:tabel-spesifikasi}
-    
+    \newpage
     \begin{table}[h]
         \centering
         \caption{Tabel spesifikasi}
@@ -84,10 +84,9 @@ Proses ini menggunakan metode Multimedia Development Life Cycle
 \begin{enumerate}
     \item \textit{Use Case Diagram}
     \\ Tahapan ini memiliki satu aktor yaitu pemain, penjelasan mengenai tahap ini diilustrasikan pada gambar \ref{fig:case-diagram}
-    \newpage
     \begin{figure}[h]
         \centering
-        \includegraphics[width=10cm]{case-diagram.png}
+        \includegraphics[width=7cm]{case-diagram.png}
         \caption{Use Case Diagram}
         \label{fig:case-diagram}
     \end{figure}
@@ -164,7 +163,6 @@ PlayerM merupakan kelas yang berfungsi untuk menampung semua pergerakan player s
 GameplayMultiP merupakan class yang berfungsi sebagai \textit{gameplay} yang akan dimainkan seperti player, point pada \textit{game} dan respawn pemain saat mati.
 Dan KarakterPlayer merupakan class yang berfungsi sebagai inisialisasi player utama.
 
-\newpage
 \subsection{Rancangan \textit{Blok} Diagram Alur \textit{Game} Jak Meuprang}
 \begin{figure}[h]
     \centering
@@ -182,7 +180,8 @@ Ketika \textit{game} sudah habis waktu makan \textit{game} sudah berakhir dan ak
 \noindent
 
 Photon memiliki fitur dan metode sendiri dalam mengelola sebuah \textit{game} multiplayer yang menggunakan \textit{framework}-nya. Untuk mengelola metode yang telah disediakan oleh photon, peniliti mengimplementasikan metode matchmaking pada \textit{game} \textit{multiplayer first person shooter}(fps) untuk mencari roomlist atau create room pada \textit{game} \textit{first person shooter}.
-        \begin{figure}[h]
+
+\begin{figure}[h]
          \centering
          \includegraphics[width=10cm]{flowchart-matchmaking}
          \caption{Flowchart Algoritma Matchmaking}
