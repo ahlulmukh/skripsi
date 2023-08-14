@@ -356,50 +356,55 @@ Pada bagian ini akan menampilkan source code yang akan menjalankan dari interaks
     \end{figure}
 \end{enumerate}
 
-\section{Pengujian Multiplayer Online}
-
-Pada pengujian multiplayer online ini terdapat 5 player untuk melakukan pengujian secara online dengan jaringan yang berbeda.
-\begin{enumerate}
-    \item Pengujian Mencari room \\
-    Pada Pengujian ini player pertama mencari room yang dibuat oleh player kedua, dan pada pengujian pencarian room ini berhasil seperti gambar \ref{fig:pencarianroom}. 
-    \begin{figure}[h]
-        \centering
-        \includegraphics[width=10cm]{pencarianroom.png}
-        \caption{Tampilan Pencarian Room}
-        \label{fig:pencarianroom}
-    \end{figure}
-    \item Pengujian Masuk Room \\
-    Pada Pengujian memasuki room player berhasil menjumpai sesama player didalam room tersebut seperti gambar \ref{fig:didalamroom}.
-    \newpage
-    \begin{figure}[h]
-        \centering
-        \includegraphics[width=10cm]{5-player.png}
-        \caption{Tampilan Didalam Room}
-        \label{fig:didalamroom}
-    \end{figure}
-    \item Pengujian Mulai Game \\
-    Pada Pengujian mulai game, player berhasil menjumpai sesama player didalam instance game secara online.
-    \begin{figure}[h]
-        \centering
-        \includegraphics[width=10cm]{5-player-ingame.png}
-        \caption{Tampilan Dalam Game}
-        \label{fig:dalamgame}
-    \end{figure}
-    \item Pengujian \textit{Battle} \\
-    Pada pengujian ini player melakukan peperangan untuk mencari point, pengujian ini berhasil dikarenakan player mati saat ditembaki oleh player lain.
-    \newpage
-    \begin{figure}[h]
-        \centering
-        \includegraphics[width=10cm]{saatdibunuh.png}
-        \caption{Tampilan Dibunuh}
-        \label{fig:dibunuh}
-    \end{figure}
-\end{enumerate}
-\newpage
-\section{Pengujian Sistem}
+\section{Pengujian Game}
 \noindent
 
-Pengujian sistem dilakukan untuk mengetahui fungsional menu utama sistem dari game jak meuprang dengan metode \textit{blackbox} testing.
+Pada tahap ini, peneliti melakukan pengujian yaitu berupa pengujain sistem, grafis, dan pengujian jaringan.
+
+\subsection{Pengujian Grafis 3D}
+\noindent
+
+Uji ini berupa perhitungan kecepatan \textit{frame} per detik pada perangkat Android dalam me-render objeck 3D. Sebuah permainan video akan terasa lancar pada standar \textit{framerate} 24. Hasilnya dapat dilihat pada tabel \ref{tb:tabel-grafis}.
+
+\begin{table}[h]
+    \centering
+    \caption{Hasil Pengujian Grafis 3D}
+    \label{tb:tabel-grafis}
+    \begin{tabular}{|l|l|l|l|}
+    \hline
+    \multicolumn{1}{|c|}{Nama Perangkat} & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}Fps\\ Minimum\end{tabular}} & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}Fps\\ Maksimum\end{tabular}} & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}Fps\\ Rata-Rata\end{tabular}} \\ \hline
+    Redmi Note 8   & 29  & 30 & 30 \\ \hline
+    Vivo y15       & 29  & 30 & 29 \\ \hline
+    Redmi Note 7   & 29  & 30 & 30 \\ \hline
+    Poco x3 Pro    & 29  & 30 & 30 \\ \hline
+    Rog Phone 2    & 30  & 30 & 30 \\ \hline
+    \multicolumn{3}{|c|}{Total rata-rata} & 29.8 \\ \hline
+    \multicolumn{3}{|l|}{Presentase Terhadap Standar Kelancaran (24FPS)} & 100\% \\ \hline
+    \end{tabular}
+    \end{table}
+\newpage
+\subsection{Uji Interface GUI}
+\noindent
+
+Uji coba ini berupa pengecekan kompabilty GUI di layar \textit{landscape orientatio} pada perangkat yang berbeda-beda dan 
+mengacu terhadap pengujian pengguna dengan device yang 
+dimiliki. Hasilnya dapat dilihat pada Tabel \ref{tb:tabel-interface}
+
+\begin{table}[h]
+    \centering
+    \caption{Hasil Pengujian Interface}
+    \label{tb:tabel-interface}
+    \begin{tabular}{|c|c|}
+    \hline
+    Nama Perangkat & \begin{tabular}[c]{@{}c@{}}Kesesuaian\\ GUI Pada Layar\end{tabular} \\ \hline
+    Redmi Note 8   & Sesuai                                                              \\ \hline
+    Vivo y15       & Sesuai                                                              \\ \hline
+    Redmi Note 7   & Sesuai                                                              \\ \hline
+    Poco x3 Pro    & Sesuai                                                              \\ \hline
+    Rog Phone 2    & Sesuai                                                              \\ \hline
+    \end{tabular}
+    \end{table}
+\newpage
 \subsection{Pengujian Blackbox Testing}
 \noindent
 
@@ -408,7 +413,6 @@ perangkat lunak yang diuji agar menjadi lebih baik dan dapat diminimalisir
 terjadinya kekurangan pada sistem
 \begin{enumerate}
     \item Tombol Cari Room \\
-    % \usepackage{tabularray}
 \begin{table}[h]
     \centering
     \caption{Hasil Pengujian Cari Room}
@@ -511,7 +515,7 @@ terjadinya kekurangan pada sistem
 Pada Tabel \ref{tb:tabel-blackbox} untuk menampilkan menghitung persentase kelayakan menu game dari 5 pengguna.
 \begin{table}[h]
     \centering
-    \caption{Hasil Pengujian Blac Box}
+    \caption{Hasil Pengujian Black Box}
     \label{tb:tabel-blackbox}
     \begin{tabular}{|ll|l|l|l|} 
     \toprule
@@ -533,24 +537,151 @@ Pada Tabel \ref{tb:tabel-blackbox} untuk menampilkan menghitung persentase kelay
     \end{table}
 
     Berdasarkan tabel atas dijelaskan pengujian kelayakan menu utama game menggunakan 
-metode black box dengan 5 pengguna didapatkan hasil 100% dari pengguna 
-berhasil dan pengguna tidak berhasil.
+metode black box dengan 5 pengguna didapatkan hasil 100\% dari pengguna 
+berhasil.
 \newpage
-\section{Pengukuran QOS \textit{(Quality Of Service)}}
+\subsection{Uji Coba Sinkronisasi Permainan}
+\noindent
+
+Uji coba ini berlangsung dengan bermain langsung menggunakan berbagai perangkat android. Ketika pemain menggerakan karakternya, secara \textit{remote} karakter tersebut menggerakannya di klien lainnya, sehingga klien lain dapat melihat pergerakan yang dilakukan oleh pemain lawannya tersebut. Koneksi internet berpengaruh pada proses sinkronisasi, koneksi yang lambat akan mempengaruhi koneksi yang lancar, maka ketika antar klien saling menembakkan, atribut health akan 
+terkalkulasi dengan prediksi oleh Photon, sehingga pemain akan 
+merasakan keanehan ketika dia berhasil menembakkan projectile
+ke lawan, terkadang tidak mengurangi atribut health lawan karena 
+mungkin tidak sesuai dengan posisi sebenarnya.
+
+\begin{table}[h]
+    \centering
+    \caption{Pengujian Sinkronisasi Karakter}
+    \label{tb:tabel-karakters}
+    \begin{tabular}{|l|l|}
+    \hline
+    \multicolumn{1}{|c|}{\textbf{Nama Pengujian}}                             & \multicolumn{1}{c|}{Sinkronisasi Pergerakan}                                                                                             \\ \hline
+    \textbf{Tujuan}                                                           & \begin{tabular}[c]{@{}l@{}}Melakukan sinkronisasi antar \\ klien pada setiap perubahan posisi\\ objek karakter\end{tabular}              \\ \hline
+    \textbf{\begin{tabular}[c]{@{}l@{}}Prosedur\\ Pengujian\end{tabular}}     & \begin{tabular}[c]{@{}l@{}}Salah satu klien pemilik objek\\ melakukan pergerakkan \\ menggunakan virtual analog\end{tabular}             \\ \hline
+    \textbf{\begin{tabular}[c]{@{}l@{}}Hasil Yang \\ Diharapkan\end{tabular}} & \begin{tabular}[c]{@{}l@{}}Pada setiap klien yang bukan \\ pemilik objek akan melakukan\\ remote pergerakkan objek karakter\end{tabular} \\ \hline
+    \textbf{Pengujian}                                                        & \multicolumn{1}{c|}{\textbf{Berhasil}}                                                                                                   \\ \hline
+    \end{tabular}
+    \end{table}
+
+    \newpage
+    \begin{table}[h]
+        \centering
+        \caption{Pengujian Sinkronisasi Darah}
+        \label{tb:tabel-darah}
+        \begin{tabular}{|l|l|}
+        \hline
+        \multicolumn{1}{|c|}{\textbf{Nama Pengujian}}                             & \multicolumn{1}{c|}{Sinkronisasi Pengurangan Darah}                                                                                              \\ \hline
+        \textbf{Tujuan}                                                           & \begin{tabular}[c]{@{}l@{}}Melakukan sinkronisasi saat client\\ menembaki client lainnya healthbarnya berkurang\end{tabular}                                            \\ \hline
+        \textbf{\begin{tabular}[c]{@{}l@{}}Prosedur\\ Pengujian\end{tabular}}     & \begin{tabular}[c]{@{}l@{}}Salah satu klien menembaki client\\ \\ lainnya.\end{tabular}                                                          \\ \hline
+        \textbf{\begin{tabular}[c]{@{}l@{}}Hasil Yang \\ Diharapkan\end{tabular}} & \begin{tabular}[c]{@{}l@{}}Jika arah aiming sesuai dengan collider\\ client, maka client yang ditembaki akan \\ berkurang darahnya.\end{tabular} \\ \hline
+        \textbf{Pengujian}                                                        & \multicolumn{1}{c|}{\textbf{Berhasil}}                                                                                                           \\ \hline
+        \end{tabular}
+        \end{table}
+\newpage
+        \begin{table}[h]
+            \centering
+            \caption{Pengujian Sinkronisasi \textit{kill}}
+            \label{tb:tabel-kill}
+            \begin{tabular}{|l|l|}
+            \hline
+            \multicolumn{1}{|c|}{\textbf{Nama Pengujian}}                             & \multicolumn{1}{c|}{Sinkronisasi \textit{kill}}                                                                                         \\ \hline
+            \textbf{Tujuan}                                                           & \begin{tabular}[c]{@{}l@{}}Melakukan sinkronisasi saat client\\ menembaki client lainnya akan menambahkan\\ kill\end{tabular} \\ \hline
+            \textbf{\begin{tabular}[c]{@{}l@{}}Prosedur\\ Pengujian\end{tabular}}     & \begin{tabular}[c]{@{}l@{}}Salah satu klien menembaki client\\ \\ lainnya sampai darahnya habis.\end{tabular}                  \\ \hline
+            \textbf{\begin{tabular}[c]{@{}l@{}}Hasil Yang \\ Diharapkan\end{tabular}} & \begin{tabular}[c]{@{}l@{}}Akan menambahkan score pada leaderboard \\ interface\end{tabular}                                   \\ \hline
+            \textbf{Pengujiann}                                                        & \multicolumn{1}{c|}{\textbf{Berhasil}}                                                                                         \\ \hline
+            \end{tabular}
+            \end{table}
+
+            \begin{table}[h]
+                \centering
+            \caption{Pengujian Sinkronisasi \textit{Death}}
+            \label{tb:tabel-death}
+                \begin{tabular}{|l|l|}
+                \hline
+                \multicolumn{1}{|c|}{\textbf{Nama Pengujian}}                             & \multicolumn{1}{c|}{Sinkronisasi Death}                                                                                  \\ \hline
+                \textbf{Tujuan}                                                           & \begin{tabular}[c]{@{}l@{}}Melakukan sinkronisasi saat client \textit{death}\\ client lainnya.\end{tabular}                   \\ \hline
+                \textbf{\begin{tabular}[c]{@{}l@{}}Prosedur\\ Pengujian\end{tabular}}     & \begin{tabular}[c]{@{}l@{}}Salah satu klien berdiam diri untuk ditembaki\\ oleh client lainnya\end{tabular}              \\ \hline
+                \textbf{\begin{tabular}[c]{@{}l@{}}Hasil Yang \\ Diharapkan\end{tabular}} & \begin{tabular}[c]{@{}l@{}}client yang berdiam diri akan terdestroy objectnya\\ dan ui death akan terupdate\end{tabular} \\ \hline
+                \textbf{Pengujian}                                                        & \multicolumn{1}{c|}{\textbf{Berhasil}}                                                                                   \\ \hline
+                \end{tabular}
+                \end{table}
+    \newpage
+    \begin{table}[h]
+        \centering
+        \caption{Pengujian Sinkronisasi \textit{Round Over}}
+        \label{tb:tabel-roundover}
+        \begin{tabular}{|l|l|}
+        \hline
+        \multicolumn{1}{|c|}{\textbf{Nama Pengujian}}                             & \multicolumn{1}{c|}{Sinkronisasi Round Over}                                                                                            \\ \hline
+        \textbf{Tujuan}                                                           & \begin{tabular}[c]{@{}l@{}}Melakukan sinkronisasi saat permainan telah\\ \\ selesai\end{tabular}                                        \\ \hline
+        \textbf{\begin{tabular}[c]{@{}l@{}}Prosedur\\ Pengujian\end{tabular}}     & \begin{tabular}[c]{@{}l@{}}pemain bermain sesuai dengan waktu yang\\ telah ditentukan\end{tabular}                                      \\ \hline
+        \textbf{\begin{tabular}[c]{@{}l@{}}Hasil Yang \\ Diharapkan\end{tabular}} & \begin{tabular}[c]{@{}l@{}}akan menampilkan panel round over dan\\ menunggu 10 detik akan dialihkan ke\\ scene menu utama.\end{tabular} \\ \hline
+        \textbf{Pengujian}                                                        & \multicolumn{1}{c|}{\textbf{Berhasil}}                                                                                                  \\ \hline
+        \end{tabular}
+        \end{table}
+    Pada uji coba ini aplikasi permainan berhasil melakukan sinkronisasi pergerakan, \textit{health}, \textit{kill}, \textit{death} dan waktu permainan. Dapat dilihat pada gambar \ref{fig:pergerakan} sebagai sinkronisasi client, gambar \ref{fig:leaderkill} sebagai sinkronisasi leaderboard \textit{kill/death}, gambar \ref{fig:killed} sebagai sinkronisasi saat di tembaki dan gambar \ref{fig:roundover2} saat waktu permainan yang ditentukan telah habis.
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=8cm]{pergerakan.jpg}
+        \caption{Tampilan Sinkronisasi Pergerakan}
+        \label{fig:pergerakan}
+    \end{figure}
+    \newpage
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=10cm]{leaderboard.jpg}
+        \caption{Tampilan Sinkronisasi \textit{Kill} Dan \textit{Death}}
+        \label{fig:leaderkill}
+    \end{figure}
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=10cm]{killed.jpg}
+        \caption{Tampilan Sinkronisasi \textit{killed}}
+        \label{fig:killed}
+    \end{figure}
+    \newpage
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=10cm]{roundover.png}
+        \caption{Tampilan Sinkronisasi \textit{Round Over}}
+        \label{fig:roundover2}
+    \end{figure}
+
+    \subsection{Pengujian matchmaking}
+    \noindent
+
+    Pada uji coba ini menggunakan beberapa klien yang bersamaan memilih pencarian room / Pembuatan room. Aplikasi permainan harus terhubung ke internet terlebih dahulu agar dapat menggunakan fiture ini.
+\begin{enumerate}
+    \item Pengujian Mencari room \\
+    Pada Pengujian ini player pertama mencari room yang dibuat oleh player kedua, dan pada pengujian pencarian room ini berhasil seperti gambar \ref{fig:pencarianroom}. 
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=10cm]{pencarianroom.png}
+        \caption{Tampilan Pencarian Room}
+        \label{fig:pencarianroom}
+    \end{figure}
+    \item Pengujian Masuk Room \\
+    Pada Pengujian memasuki room player berhasil menjumpai sesama player didalam room tersebut seperti gambar \ref{fig:didalamroom}.
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=10cm]{5-player.png}
+        \caption{Tampilan Didalam Room}
+        \label{fig:didalamroom}
+    \end{figure}
+\end{enumerate}
+\subsection{Pengujian QOS \textit{(Quality Of Service)}}
 \noindent
 
 Pengukuran QOS dilakukan untuk mengetahui performa jaringan dari photon unity networking.
-
-\subsection{Pengukuran Packet Loss}
-\noindent
-
-Packet loss merupakan banyaknya paket yang gagal 
+\begin{enumerate}
+    \item \textit{Packet Loss} \\
+    Packet loss merupakan banyaknya paket yang gagal 
 mencapai tempat tujuan paket tersebut dikirim. Ketika packet 
 loss besar maka dapat diketahui bahwa jaringan sedang sibuk 
 atau terjadi overload. Berdasarkan teori dan hasil pengamatan 
 disaat melakukan pengukuran ,maka hasil yang didapatkan 
 bisa dilihat pada \ref{tb:tabel-packetloss}.
-
+\newpage
 \begin{table}[h]
     \centering
     \caption{Hasil Pengukuran Packet loss}
@@ -571,42 +702,42 @@ bisa dilihat pada \ref{tb:tabel-packetloss}.
     \hline
     \end{tabular}
     \end{table}
-\newpage
-Dari hasil pengukuran packet loss menurut standar TIPHON jika rata-rata packet loss 
+
+    Dari hasil pengukuran packet loss menurut standar TIPHON jika rata-rata packet loss 
 0 maka masuk kedalam kategori “Sangat Bagus”.
-\subsection{Pengukuran Delay}
-\noindent
-
-Delay merupakan lamanya waktu yang dibutuhkan oleh 
-data atau informasi untuk sampai ke tempat tujuan data atau 
-informasi tersebut dikirim. Delay pada suatu jaringan akan 
-menentukan langkah apa yang akan kita ambil ketika kita 
-memanajemen suatu jaringan. Berdasarkan teori dan hasil 
-pengamatan disaat melakukan pengukuran ,maka hasil yang 
-didapatkan bisa dilihat pada \ref{tb:tabel-delay}
-
-\begin{table}[h]
-    \centering
-    \caption{Hasil Pengukuran Delay}
-    \label{tb:tabel-delay}
-    \begin{tabular}{|c|c|c|c|c|} 
-    \hline
-    No & \begin{tabular}[c]{@{}c@{}}Hari\\Tanggal\end{tabular}        & Pengujian & \begin{tabular}[c]{@{}c@{}}Delay\\Average\end{tabular} & Tiphon        \\ 
-    \hline
-    1  & \begin{tabular}[c]{@{}c@{}}Rabu\\26 July\\2023\end{tabular}  & 1         & 125                                                    & Sangat Bagus  \\ 
-    \hline
-    2  & \begin{tabular}[c]{@{}c@{}}Rabu\\26 July\\2023\end{tabular}  & 2         & 110                                                    & Sangat Bagus  \\ 
-    \hline
-    3  & \begin{tabular}[c]{@{}c@{}}Rabu\\26 July \\2023\end{tabular} & 3         & 125                                                    & Sangat Bagus  \\ 
-    \hline
-    4  & \begin{tabular}[c]{@{}c@{}}Rabu\\26~July\\2023\end{tabular}  & 4         & 90                                                     & Sangat Bagus  \\ 
-    \hline
-    5  & \begin{tabular}[c]{@{}c@{}}Rabu\\26~July\\2023\end{tabular}  & 5         & 130                                                    & Sangat Bagus  \\
-    \hline
-    \end{tabular}
-    \end{table}
-
-    Dari hasil pengukuran delay untuk masing-masing 
-pengguna adalah tertinggi terdapat di 1,3 dan 5 pengguna menurut standar TIPHON jika 
-rata-rata delay dibawah 150 ms maka masuk kedalam kategori 
-“Sangat Bagus”.
+\newpage
+    \item \textit{Delay} \\
+    Delay merupakan lamanya waktu yang dibutuhkan oleh 
+    data atau informasi untuk sampai ke tempat tujuan data atau 
+    informasi tersebut dikirim. Delay pada suatu jaringan akan 
+    menentukan langkah apa yang akan kita ambil ketika kita 
+    memanajemen suatu jaringan. Berdasarkan teori dan hasil 
+    pengamatan disaat melakukan pengukuran ,maka hasil yang 
+    didapatkan bisa dilihat pada \ref{tb:tabel-delay}
+    
+    \begin{table}[h]
+        \centering
+        \caption{Hasil Pengukuran Delay}
+        \label{tb:tabel-delay}
+        \begin{tabular}{|c|c|c|c|c|} 
+        \hline
+        No & \begin{tabular}[c]{@{}c@{}}Hari\\Tanggal\end{tabular}        & Pengujian & \begin{tabular}[c]{@{}c@{}}Delay\\Average\end{tabular} & Tiphon        \\ 
+        \hline
+        1  & \begin{tabular}[c]{@{}c@{}}Rabu\\26 July\\2023\end{tabular}  & 1         & 125                                                    & Sangat Bagus  \\ 
+        \hline
+        2  & \begin{tabular}[c]{@{}c@{}}Rabu\\26 July\\2023\end{tabular}  & 2         & 110                                                    & Sangat Bagus  \\ 
+        \hline
+        3  & \begin{tabular}[c]{@{}c@{}}Rabu\\26 July \\2023\end{tabular} & 3         & 125                                                    & Sangat Bagus  \\ 
+        \hline
+        4  & \begin{tabular}[c]{@{}c@{}}Rabu\\26~July\\2023\end{tabular}  & 4         & 90                                                     & Sangat Bagus  \\ 
+        \hline
+        5  & \begin{tabular}[c]{@{}c@{}}Rabu\\26~July\\2023\end{tabular}  & 5         & 130                                                    & Sangat Bagus  \\
+        \hline
+        \end{tabular}
+        \end{table}
+    
+        Dari hasil pengukuran delay untuk masing-masing 
+    pengguna adalah tertinggi terdapat di 1,3 dan 5 pengguna menurut standar TIPHON jika 
+    rata-rata delay dibawah 150 ms maka masuk kedalam kategori 
+    “Sangat Bagus”.
+\end{enumerate}
