@@ -88,7 +88,7 @@ Tahapan ini merupakan tahapan yang berisi tentang penjelasan bagaimana game ini 
 \noindent
 
 Sebuah permainan tidak luput dari berbagai asset karena asset ini adalah bahan bahan yang digunakan pada dalam pembuatan game ini untuk memperbagus tampilan dari game itu sendiri. Asset yang digunakan disini adalah asset gratis dari beberapa platform yang disediakan gratis. Berikut adalah beberapa asset utama yang digunakan dalam pembuatan game "JakMeuprang".
-\newpage
+
 \begin{enumerate}
     \item Karakter \\
     Adapun karakter yang digunakan dalam pembuatan game ini memiliki dua karakter yang memiliki animasi yang sama.
@@ -114,7 +114,7 @@ Sebuah permainan tidak luput dari berbagai asset karena asset ini adalah bahan b
       }
       No & Gambar & Nama \\
       1 & \includegraphics[scale=0.15]{weapon1} & Pistol \\
-      2 & \includegraphics[scale=0.15]{weapon2} & Smg Rifle \\
+      2 & \includegraphics[scale=0.15]{weapon2} & Rifle \\
       2 & \includegraphics[scale=0.15]{weapon3} & Knife \\
     \end{longtblr}
 \end{enumerate}
@@ -158,14 +158,12 @@ Tahap ini merupakan tahap yang berisi penjelasan bagaimana proses game ini dapat
         Player mendapatkan 3 senjata yaitu pistol, rifle, pisau.
         \item Health \\
         Player diberikan darah , jika darah berkurang makan player akan terdestroy objectnya.
-        \item Weapon Overheat \\
-        Player diberikan batas saat menembak, jika melebihi batas tersebut maka senjata tersebut akan overheat.
+        \item Weapon Ammo \\
+        Player diberikan ammo saat menembak, jika ammo telah habis maka ammo akan auto reload.
     \end{enumerate}
     \item Sound \\
     Pada tahap ini memberikan sound pada beberapa object yaitu :
     \begin{enumerate}
-        \item Backsound \\
-        Memberikan sound saat dalam main menu.
         \item Foot Step Low \\ 
         Memberikan sound saat player sedang berjalan maka menggunakan sound foot step low.
         \item Foot Step Fast \\
@@ -173,9 +171,16 @@ Tahap ini merupakan tahap yang berisi penjelasan bagaimana proses game ini dapat
         \item Memberikan Sound Senjata \\ 
         Dengan memberikan sound masing masing pada senjata yang digunakan.
     \end{enumerate}
-\end{enumerate}
-
-\subsection{Map Gameplay}
+    \item Pembuatan \textit{Mobile Input} \\
+    Tahap ini adalah tahap pembuatan \textit{Mobile input} yang berfungsi untuk menerima inputan \textit{button} dari user yang terdapat pada layar user. Inputannya berupa \textit{Shoot}, \textit{Aiming}, \textit{change weapon}, \textit{pause}, \textit{Move player} dan \textit{LeaderBoard input}.
+    \newpage
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=10cm]{mobile-input.png}
+        \caption{Tampilan Pembuatan \textit{Mobile Input}}
+        \label{fig:mobileinput}
+    \end{figure}
+\item Pembuatan Map \\
 Tahap ini adalah tahap pembuatan map yang digunakan saat bermain, map ini menggunakan asset low poly yang diberikan secara gratis dan dimplementasikan
 \begin{figure}[h]
     \centering
@@ -183,6 +188,37 @@ Tahap ini adalah tahap pembuatan map yang digunakan saat bermain, map ini menggu
     \caption{Tampilan Pembuatan Map}
     \label{fig:pembuatanmap}
 \end{figure}
+\newpage
+\item Pembuatan Spawn Point \\ 
+Pada tahap ini, memberikan beberapa titik spawn player secara random, jika player di\textit{kill} oleh player lain, maka sistem akan memberikan titik spawn yang sudah ditentukan.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=10cm]{pembuatan-spawn.png}
+    \caption{Tampilan Pembuatan Map}
+    \label{fig:pembuatanspawn}
+\end{figure}
+\item Pembuatan Animasi Senjata \\
+Tahap ini merupakan pembuatan animasi controller pada setiap setiap senjata yang ada yaitu pisau, m14, dan pistol.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=10cm]{animasi-knife.png}
+    \caption{Tampilan Pembuatan Animasi Knife}
+    \label{fig:animasiknife}
+\end{figure}
+\newpage
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=10cm]{animasi-pistol.png}
+    \caption{Tampilan Pembuatan Animasi Pistol}
+    \label{fig:animasipistol}
+\end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=10cm]{animasi-rifle.png}
+    \caption{Tampilan Pembuatan Animasi Rifle}
+    \label{fig:animasirifle}
+\end{figure}
+\end{enumerate}
 
 \newpage
 \subsection{Program}
