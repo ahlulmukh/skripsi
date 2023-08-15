@@ -174,22 +174,6 @@ Dan KarakterPlayer merupakan class yang berfungsi sebagai inisialisasi player ut
 Dapat dilihat pada gambar \ref{fig:aclass-diagram-game} digambarkan alur kerja atau aktivitas sebuah sistem \textit{game} yang dimulai \textit{start game} untuk memulai permainan kemudian menunggu \textit{loading} untuk memasuki permainan, sistem akan menginisialisasi objectnya terlebih dahulu seperti map, senjata dan point.
 Jika inisialisasi sudah selesai \textit{game} akan dimulai dan pemain spawn pada saat \textit{game} dimulai, jika pemain bertemu pemain lain dan bertempur akan ditemukan dua kondisi, jika mati pemain akan \textit{respawn} ulang dengan waktu 5 detik, jika pemain memenangkan pertempuran maka pemain mendapatkan point.
 Ketika \textit{game} sudah habis waktu makan \textit{game} sudah berakhir dan akan mamasukin akhir \textit{game} permainan.
-
-\newpage
-% \subsection{Flowchart Photon Unity}
-% \noindent
-
-% Photon memiliki fitur dan metode sendiri dalam mengelola sebuah \textit{game} multiplayer yang menggunakan \textit{framework}-nya. Untuk mengelola metode yang telah disediakan oleh photon, peniliti mengimplementasikan metode matchmaking pada \textit{game} \textit{multiplayer first person shooter}(fps) untuk mencari roomlist atau create room pada \textit{game} \textit{first person shooter}.
-
-% \begin{figure}[h]
-%          \centering
-%          \includegraphics[width=10cm]{flowchart-matchmaking}
-%          \caption{Flowchart Algoritma Matchmaking}
-%          \label{fig:algoritmamatmaching}
-%          \end{figure}
-
-% Mengacu pada gambar \ref{fig:algoritmamatmaching}, algoritma membutuhkan daftar \textit{room} yang didapatkan dari \textit{interface} photon \textit{Behavior}. Jika belum ada \textit{room} yang tersedia pada daftar \textit{room}, maka dilakukan fungsi detil dari algoritma matchmaking yaitu SearchRoomMatchmaking(). 
-
 \section{Story Board}
 \noindent
 
@@ -204,9 +188,10 @@ visual atau kerangka dasar dari permainan tersebut.
     hlines,
   }
   Id & Deskripsi & Gambar \\
-  1 & {Bagian main menu \\akan menampilkan \\menu utama game} & \includegraphics[scale=0.15]{menuutama} \\
-  2 & {Bagian didalam room \\akan menampilkan \\player} & \includegraphics[scale=0.15]{pengujianroom} \\
-  3 & {Bagian didalam game \\saat game selesai} & \includegraphics[scale=0.15]{roundover} \\
+  1 & {Bagian main menu \\akan menampilkan \\menu utama game} & \includegraphics[scale=0.10]{mainmenustory} \\
+  2 & {Bagian didalam room \\akan menampilkan \\player} & \includegraphics[scale=0.10]{in-room-story} \\
+  3 & {Bagian didalam pencarin \\room menampilkan list\\ room} & \includegraphics[scale=0.10]{listroomstory} \\
+  4 & {Bagian didalam pembuatan \\room } & \includegraphics[scale=0.10]{cari-Roomstory} \\
 \end{longtblr}
 
 
@@ -240,6 +225,11 @@ Teknik pengujian yang digunakan yaitu blackbox. Pengujian Black Box pada fungsio
 \noindent
 
 Teknik pengujian performa untuk melakukan pengujian jaringan pada photon cloud menggunakan wireshark qos untuk mengukur delay dan packet loss.
+
+\subsection{Pengujian sinkronisasi permainan}
+\noindent
+
+Pada teknik pengujian sinkronisasi melakukan pengujian pada pergerakan player, pengurangan darah player, penambahan statistik leaderboard dan \textit{time over} pada permainan secara sinkronisasi antar client.
 \section{Hasil yang diharapkan}
 Hasil yang diharapkan pada penilitian ini antara lain :
 \begin{enumerate}
