@@ -36,6 +36,8 @@
 \usepackage[table]{xcolor}
 \usepackage{setspace}
 \doublespacing
+\usepackage{everypage}
+\AddEverypageHook{\ifdim\textwidth=\linewidth\else\rotatebox{90}{\thepage}\fi}
 
 
 \renewcommand{\thechapter}{\centering \Roman{chapter}}
