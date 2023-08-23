@@ -361,10 +361,52 @@ Tahap ini merupakan pembuatan animasi controller pada setiap setiap senjata yang
 
 Pada tahap ini, peneliti melakukan pengujian yaitu berupa pengujain sistem, grafis, interface, sinkronisasi dan pengujian jaringan.
 
+\subsection{Uji Coba Pengguna}
+\noindent
+
+Dilakukan pengujian terhadap pengguna untuk 
+memberikan timbal balik akurasi penilaian untuk pengujian 
+performa. Berikut Daftar nama penguji pada uji coba pengguna 
+yang dapat dilihat pada tabel \ref{tab:pengguna-uji}.
+\newpage
+
+\begin{table}[h]
+    \centering
+    \caption{Daftar Pengguna Uji Coba}
+    \label{tab:pengguna-uji}
+    \begin{tabular}{|l|l|l|}
+    \hline
+    \textbf{No} & \textbf{Nama}          & \textbf{Keterangan Device} \\ \hline
+    1           & Ahlul Mukhramin        & Redmi Note 8               \\ \hline
+    2           & Aldi Ferdian           & Realme 7                   \\ \hline
+    3           & Rizki Ramadhan         & Samsung                    \\ \hline
+    4           & Muhammad Rizki Afrizal & Redmi Note 7               \\ \hline
+    5           & Mujibullah             & Vivo y15                   \\ \hline
+    \end{tabular}
+    \end{table}
+
+Berikut hasil penilaian pengguna terhadap Kelancaran permainan, dan Kesesuaian GUI Pada tabel \ref{tab:pengujian-hasil}.
+
+\begin{table}[h]
+    \centering
+    \caption{Hasil Pengujian Pengguna}
+    \label{tab:pengujian-hasil}
+    \begin{tabular}{|lllllll|l|}
+    \hline
+    \multicolumn{1}{|l|}{}                              & \multicolumn{1}{c|}{}                                                & \multicolumn{5}{c|}{\textbf{Penilaian}}                                                                                                                                 &                                      \\ \cline{3-7}
+    \multicolumn{1}{|l|}{\multirow{-2}{*}{\textbf{No}}} & \multicolumn{1}{c|}{\multirow{-2}{*}{\textbf{Keterangan Pengujian}}} & \multicolumn{1}{c|}{\textbf{1}} & \multicolumn{1}{c|}{\textbf{2}} & \multicolumn{1}{c|}{\textbf{3}} & \multicolumn{1}{c|}{\textbf{4}} & \multicolumn{1}{c|}{\textbf{5}} & \multirow{-2}{*}{\textbf{Rata Rata}} \\ \hline
+    \multicolumn{1}{|l|}{1}                             & \multicolumn{1}{l|}{Kelancaran FPS Permainan}                        & \multicolumn{1}{l|}{0}          & \multicolumn{1}{l|}{0}          & \multicolumn{1}{r|}{0}          & \multicolumn{1}{l|}{0}          & 5                               & 100\%                                \\ \hline
+    \rowcolor[HTML]{9B9B9B} 
+    \multicolumn{2}{|l|}{\cellcolor[HTML]{9B9B9B}}                                                                             & \multicolumn{2}{l|}{\cellcolor[HTML]{9B9B9B}Sesuai}               & \multicolumn{3}{l|}{\cellcolor[HTML]{9B9B9B}Tidak}                                                  &                                      \\ \hline
+    \multicolumn{1}{|l|}{2}                             & \multicolumn{1}{l|}{Kesesuaian GUI Dengan Device}                    & \multicolumn{2}{l|}{5}                                            & \multicolumn{3}{l|}{0}                                                                              & 100\%                                \\ \hline
+    \multicolumn{7}{|c|}{Total Rata Rata}                                                                                                                                                                                                                                                                & 100\%                                \\ \hline
+    \end{tabular}
+    \end{table}
+
 \subsection{Pengujian Grafis 3D}
 \noindent
 
-Uji ini berupa perhitungan kecepatan \textit{frame} per detik pada perangkat Android dalam me-render objeck 3D. Sebuah permainan video akan terasa lancar pada standar \textit{framerate} 24. Hasilnya dapat dilihat pada tabel \ref{tb:tabel-grafis}.
+Uji ini berupa perhitungan kecepatan \textit{frame} per detik pada perangkat Android dalam me-render objeck 3D. Sebuah permainan video akan terasa lancar pada standar \textit{framerate} 24. Pengujian ini berlangsung menggunnakan permainan itu sendiri. Hasilnya dapat dilihat pada tabel \ref{tb:tabel-grafis}.
 
 \begin{table}[h]
     \centering
@@ -373,13 +415,13 @@ Uji ini berupa perhitungan kecepatan \textit{frame} per detik pada perangkat And
     \begin{tabular}{|l|l|l|l|}
     \hline
     \multicolumn{1}{|c|}{Nama Perangkat} & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}Fps\\ Minimum\end{tabular}} & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}Fps\\ Maksimum\end{tabular}} & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}Fps\\ Rata-Rata\end{tabular}} \\ \hline
-    Redmi Note 8   & 29  & 30 & 30 \\ \hline
+    Redmi Note 8   & 27  & 35 & 30 \\ \hline
     Vivo y15       & 29  & 30 & 29 \\ \hline
-    Redmi Note 7   & 29  & 30 & 30 \\ \hline
-    Poco x3 Pro    & 29  & 30 & 30 \\ \hline
-    Rog Phone 2    & 30  & 30 & 30 \\ \hline
-    \multicolumn{3}{|c|}{Total rata-rata} & 29.8 \\ \hline
-    \multicolumn{3}{|l|}{Presentase Terhadap Standar Kelancaran (24FPS)} & 100\% \\ \hline
+    Redmi Note 7   & 29  & 37 & 35 \\ \hline
+    Realme 7    & 29  & 60 & 54 \\ \hline
+    Samsung    & 30  & 60 & 45 \\ \hline
+    \multicolumn{3}{|c|}{Total rata-rata} & 34.6 \\ \hline
+    \multicolumn{3}{|l|}{Presentase Terhadap Standar Kelancaran (24FPS)} & 100\%  \\ \hline
     \end{tabular}
     \end{table}
 \newpage
@@ -405,140 +447,140 @@ dimiliki. Hasilnya dapat dilihat pada Tabel \ref{tb:tabel-interface}
     \end{tabular}
     \end{table}
 \newpage
-\subsection{Pengujian Blackbox Testing}
-\noindent
+% \subsection{Pengujian Blackbox Testing}
+% \noindent
 
-Pengujian blackbox untuk menguji fungsi sistem atau kekurangan pada 
-perangkat lunak yang diuji agar menjadi lebih baik dan dapat diminimalisir 
-terjadinya kekurangan pada sistem
-\begin{enumerate}
-    \item Tombol Cari Room \\
-\begin{table}[h]
-    \centering
-    \caption{Hasil Pengujian Cari Room}
-    \label{tb:tabel-cariroom}
-    \begin{tblr}{
-      vlines,
-      hline{1,7} = {-}{0.08em},
-      hline{2} = {-}{},
-      hline{3-6} = {4,6}{},
-    }
-    ID  & {Rincian \\Pengujian} & {Hasil yang\\di harapkan}             & Player & {Hasil yang \\didapatkan}             & Keterangan \\
-    R01 & {Tombol \\Cari Room}  & {Menampilkan \\Panel\\Pencarian Room} & 1      & {Menampilkan \\Panel\\Pencarian Room} & Berhasil   \\
-        &                       &                                       & 2      &                                       & Berhasil   \\
-        &                       &                                       & 3      &                                       & Berhasil   \\
-        &                       &                                       & 4      &                                       & Berhasil   \\
-        &                       &                                       & 5      &                                       & Berhasil   
-    \end{tblr}
-    \end{table}
-    \newpage
-    \item Tombol Buat Room \\
-    \begin{table}[h]
-        \centering
-        \caption{Hasil Pengujian Buat Room}
-        \label{tb:tabel-buatroom}
-        \begin{tblr}{
-          vlines,
-          hline{1,7} = {-}{0.08em},
-          hline{2} = {-}{},
-          hline{3-6} = {4,6}{},
-        }
-        ID  & {Rincian \\Pengujian} & {Hasil yang\\di harapkan}                & Player & {Hasil yang \\didapatkan}               & Keterangan \\
-        B01 & {Tombol\\Buat Room}   & {Menampilkan \\Panel Inputan\\Nama Room} & 1      & {Menampilkan\\Panel Inputan\\Nama Room} & Berhasil   \\
-            &                       &                                          & 2      &                                         & Berhasil   \\
-            &                       &                                          & 3      &                                         & Berhasil   \\
-            &                       &                                          & 4      &                                         & Berhasil   \\
-            &                       &                                          & 5      &                                         & Berhasil   
-        \end{tblr}
-        \end{table}
-        \newpage
-        \item Tombol Exit Room \\
-        \begin{table}[h]
-            \centering
-            \caption{Hasil Pengujian Exit Room}
-        \label{tb:tabel-exitroom}
-            \begin{tblr}{
-              vlines,
-              hline{1,7} = {-}{0.08em},
-              hline{2} = {-}{},
-              hline{3-6} = {4,6}{},
-            }
-            ID  & {Rincian \\Pengujian} & {Hasil yang\\di harapkan}  & Player & {Hasil yang \\didapatkan} & Keterangan \\
-            E01 & {Tombol\\Exit Room}   & {Menampilkan~\\Menu Utama} & 1      & {Menampilkan\\Menu utama} & Berhasil   \\
-                &                       &                            & 2      &                           & Berhasil   \\
-                &                       &                            & 3      &                           & Berhasil   \\
-                &                       &                            & 4      &                           & Berhasil   \\
-                &                       &                            & 5      &                           & Berhasil   
-            \end{tblr}
-            \end{table}
-        \item Tombol About Game \\
-        \begin{table}[h]
-            \centering
-            \caption{Hasil Pengujian About Game}
-            \label{tb:tabel-aboutgame}
-            \begin{tblr}{
-              vlines,
-              hline{1,7} = {-}{0.08em},
-              hline{2} = {-}{},
-              hline{3-6} = {4,6}{},
-            }
-            ID  & {Rincian \\Pengujian} & {Hasil yang\\di harapkan} & Player & {Hasil yang \\didapatkan} & Keterangan \\
-            A01 & {Tombol\\About\\Game} & {Menampilkan\\Informasi}  & 1      & {Menampilkan\\Informasi}  & Berhasil   \\
-                &                       &                           & 2      &                           & Berhasil   \\
-                &                       &                           & 3      &                           & Berhasil   \\
-                &                       &                           & 4      &                           & Berhasil   \\
-                &                       &                           & 5      &                           & Berhasil   
-            \end{tblr}
-            \end{table}
-        \newpage
-        \item Tombol Keluar \\
-        \begin{table}[h]
-            \centering
-            \caption{Hasil Pengujian Keluar Game}
-            \label{tb:tabel-keluargame}
-            \begin{tblr}{
-              vlines,
-              hline{1,7} = {-}{0.08em},
-              hline{2} = {-}{},
-              hline{3-6} = {4,6}{},
-            }
-            ID  & {Rincian \\Pengujian} & {Hasil yang\\di harapkan} & Player & {Hasil yang \\didapatkan} & Keterangan \\
-            K01 & {Tombol\\Keluar}      & {Mengeluarkan\\Permainan} & 1      & {Mengeluarkan\\Permainan} & Berhasil   \\
-                &                       &                           & 2      &                           & Berhasil   \\
-                &                       &                           & 3      &                           & Berhasil   \\
-                &                       &                           & 4      &                           & Berhasil   \\
-                &                       &                           & 5      &                           & Berhasil   
-            \end{tblr}
-            \end{table}
-\end{enumerate}
+% Pengujian blackbox untuk menguji fungsi sistem atau kekurangan pada 
+% perangkat lunak yang diuji agar menjadi lebih baik dan dapat diminimalisir 
+% terjadinya kekurangan pada sistem
+% \begin{enumerate}
+%     \item Tombol Cari Room \\
+% \begin{table}[h]
+%     \centering
+%     \caption{Hasil Pengujian Cari Room}
+%     \label{tb:tabel-cariroom}
+%     \begin{tblr}{
+%       vlines,
+%       hline{1,7} = {-}{0.08em},
+%       hline{2} = {-}{},
+%       hline{3-6} = {4,6}{},
+%     }
+%     ID  & {Rincian \\Pengujian} & {Hasil yang\\di harapkan}             & Player & {Hasil yang \\didapatkan}             & Keterangan \\
+%     R01 & {Tombol \\Cari Room}  & {Menampilkan \\Panel\\Pencarian Room} & 1      & {Menampilkan \\Panel\\Pencarian Room} & Berhasil   \\
+%         &                       &                                       & 2      &                                       & Berhasil   \\
+%         &                       &                                       & 3      &                                       & Berhasil   \\
+%         &                       &                                       & 4      &                                       & Berhasil   \\
+%         &                       &                                       & 5      &                                       & Berhasil   
+%     \end{tblr}
+%     \end{table}
+%     \newpage
+%     \item Tombol Buat Room \\
+%     \begin{table}[h]
+%         \centering
+%         \caption{Hasil Pengujian Buat Room}
+%         \label{tb:tabel-buatroom}
+%         \begin{tblr}{
+%           vlines,
+%           hline{1,7} = {-}{0.08em},
+%           hline{2} = {-}{},
+%           hline{3-6} = {4,6}{},
+%         }
+%         ID  & {Rincian \\Pengujian} & {Hasil yang\\di harapkan}                & Player & {Hasil yang \\didapatkan}               & Keterangan \\
+%         B01 & {Tombol\\Buat Room}   & {Menampilkan \\Panel Inputan\\Nama Room} & 1      & {Menampilkan\\Panel Inputan\\Nama Room} & Berhasil   \\
+%             &                       &                                          & 2      &                                         & Berhasil   \\
+%             &                       &                                          & 3      &                                         & Berhasil   \\
+%             &                       &                                          & 4      &                                         & Berhasil   \\
+%             &                       &                                          & 5      &                                         & Berhasil   
+%         \end{tblr}
+%         \end{table}
+%         \newpage
+%         \item Tombol Exit Room \\
+%         \begin{table}[h]
+%             \centering
+%             \caption{Hasil Pengujian Exit Room}
+%         \label{tb:tabel-exitroom}
+%             \begin{tblr}{
+%               vlines,
+%               hline{1,7} = {-}{0.08em},
+%               hline{2} = {-}{},
+%               hline{3-6} = {4,6}{},
+%             }
+%             ID  & {Rincian \\Pengujian} & {Hasil yang\\di harapkan}  & Player & {Hasil yang \\didapatkan} & Keterangan \\
+%             E01 & {Tombol\\Exit Room}   & {Menampilkan~\\Menu Utama} & 1      & {Menampilkan\\Menu utama} & Berhasil   \\
+%                 &                       &                            & 2      &                           & Berhasil   \\
+%                 &                       &                            & 3      &                           & Berhasil   \\
+%                 &                       &                            & 4      &                           & Berhasil   \\
+%                 &                       &                            & 5      &                           & Berhasil   
+%             \end{tblr}
+%             \end{table}
+%         \item Tombol About Game \\
+%         \begin{table}[h]
+%             \centering
+%             \caption{Hasil Pengujian About Game}
+%             \label{tb:tabel-aboutgame}
+%             \begin{tblr}{
+%               vlines,
+%               hline{1,7} = {-}{0.08em},
+%               hline{2} = {-}{},
+%               hline{3-6} = {4,6}{},
+%             }
+%             ID  & {Rincian \\Pengujian} & {Hasil yang\\di harapkan} & Player & {Hasil yang \\didapatkan} & Keterangan \\
+%             A01 & {Tombol\\About\\Game} & {Menampilkan\\Informasi}  & 1      & {Menampilkan\\Informasi}  & Berhasil   \\
+%                 &                       &                           & 2      &                           & Berhasil   \\
+%                 &                       &                           & 3      &                           & Berhasil   \\
+%                 &                       &                           & 4      &                           & Berhasil   \\
+%                 &                       &                           & 5      &                           & Berhasil   
+%             \end{tblr}
+%             \end{table}
+%         \newpage
+%         \item Tombol Keluar \\
+%         \begin{table}[h]
+%             \centering
+%             \caption{Hasil Pengujian Keluar Game}
+%             \label{tb:tabel-keluargame}
+%             \begin{tblr}{
+%               vlines,
+%               hline{1,7} = {-}{0.08em},
+%               hline{2} = {-}{},
+%               hline{3-6} = {4,6}{},
+%             }
+%             ID  & {Rincian \\Pengujian} & {Hasil yang\\di harapkan} & Player & {Hasil yang \\didapatkan} & Keterangan \\
+%             K01 & {Tombol\\Keluar}      & {Mengeluarkan\\Permainan} & 1      & {Mengeluarkan\\Permainan} & Berhasil   \\
+%                 &                       &                           & 2      &                           & Berhasil   \\
+%                 &                       &                           & 3      &                           & Berhasil   \\
+%                 &                       &                           & 4      &                           & Berhasil   \\
+%                 &                       &                           & 5      &                           & Berhasil   
+%             \end{tblr}
+%             \end{table}
+% \end{enumerate}
 
-Pada Tabel \ref{tb:tabel-blackbox} untuk menampilkan menghitung persentase kelayakan menu game dari 5 pengguna.
-\begin{table}[h]
-    \centering
-    \caption{Hasil Pengujian Black Box}
-    \label{tb:tabel-blackbox}
-    \begin{tabular}{|ll|l|l|l|} 
-    \toprule
-    \multicolumn{1}{|l|}{\begin{tabular}[c]{@{}l@{}}Test\\Case\\Id\end{tabular}} & Penggunaan Berhasil                      & \begin{tabular}[c]{@{}l@{}}Pengunaan\\Tidak\\Berhasil\end{tabular} & Presentase & Hasil                 \\ 
-    \hline
-    R01                                                                          & 5                                        & 0                                                                  & $5/5 \times 100\%$  & 100\%                      \\ 
-    \hline
-    B01                                                                          & 5                                        & 0                                                                  & $5/5 \times 100\%$  & 100\%                      \\ 
-    \hline
-    E01                                                                          & 5                                        & 0                                                                  & $5/5 \times 100\%$  & 100\%                      \\ 
-    \hline
-    A01                                                                          & 5                                        & 0                                                                  & $5/5 \times 100\%$  & 100\%                      \\ 
-    \hline
-    K01                                                                          & 5                                        & 0                                                                  & $5/5 \times 100\%$  & 100\%                      \\ 
-    \hline
-                                                                                 & \multicolumn{1}{l}{Rata Rata Presentase} & \multicolumn{1}{l}{}                                               &            & 100\%  \\
-    \bottomrule
-    \end{tabular}
-    \end{table}
+% Pada Tabel \ref{tb:tabel-blackbox} untuk menampilkan menghitung persentase kelayakan menu game dari 5 pengguna.
+% \begin{table}[h]
+%     \centering
+%     \caption{Hasil Pengujian Black Box}
+%     \label{tb:tabel-blackbox}
+%     \begin{tabular}{|ll|l|l|l|} 
+%     \toprule
+%     \multicolumn{1}{|l|}{\begin{tabular}[c]{@{}l@{}}Test\\Case\\Id\end{tabular}} & Penggunaan Berhasil                      & \begin{tabular}[c]{@{}l@{}}Pengunaan\\Tidak\\Berhasil\end{tabular} & Presentase & Hasil                 \\ 
+%     \hline
+%     R01                                                                          & 5                                        & 0                                                                  & $5/5 \times 100\%$  & 100\%                      \\ 
+%     \hline
+%     B01                                                                          & 5                                        & 0                                                                  & $5/5 \times 100\%$  & 100\%                      \\ 
+%     \hline
+%     E01                                                                          & 5                                        & 0                                                                  & $5/5 \times 100\%$  & 100\%                      \\ 
+%     \hline
+%     A01                                                                          & 5                                        & 0                                                                  & $5/5 \times 100\%$  & 100\%                      \\ 
+%     \hline
+%     K01                                                                          & 5                                        & 0                                                                  & $5/5 \times 100\%$  & 100\%                      \\ 
+%     \hline
+%                                                                                  & \multicolumn{1}{l}{Rata Rata Presentase} & \multicolumn{1}{l}{}                                               &            & 100\%  \\
+%     \bottomrule
+%     \end{tabular}
+%     \end{table}
 
-    Berdasarkan tabel atas dijelaskan pengujian kelayakan menu utama game menggunakan 
-metode black box dengan 5 pengguna didapatkan hasil 100\% dari pengguna 
-berhasil.
+%     Berdasarkan tabel atas dijelaskan pengujian kelayakan menu utama game menggunakan 
+% metode black box dengan 5 pengguna didapatkan hasil 100\% dari pengguna 
+% berhasil.
 \newpage
 \subsection{Uji Coba Sinkronisasi Permainan}
 \noindent
