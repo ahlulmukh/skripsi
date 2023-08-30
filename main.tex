@@ -1,5 +1,9 @@
 \documentclass[12pt,a4paper]{report}
 
+\usepackage[style=apa, backend=biber]{biblatex}
+\addbibresource{reference.bib}
+
+
 \usepackage{array}
 \usepackage{makecell}
 \usepackage{fancyhdr}
@@ -120,7 +124,8 @@
 \input{bab4}
 \input{bab5}
 
-\bibliographystyle{apalike} % We choose the "plain" reference style
-\bibliography{reference}
+\onehalfspacing
+\renewcommand{\bibname}{Daftar Pustaka}
+\printbibliography
 \addcontentsline{toc}{chapter}{DAFTAR PUSTAKA}
 \end{document}
